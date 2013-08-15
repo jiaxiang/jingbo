@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd" version="2.0">
+
+	<description>JSTL 1.1 core library</description>
+	<display-name>JSTL custom</display-name>
+	<tlib-version>1.1</tlib-version>
+	<short-name>f</short-name>
+	<uri>http://java.sun.com/jsp/jstl/custom</uri>
+
+	<validator>
+		<description>Provides custom validation features for JSTL tags.</description>
+		<validator-class>org.apache.taglibs.standard.tlv.JstlCoreTLV</validator-class>
+	</validator>
+
+	<tag>
+		<description>分页标签</description>
+		<name>page</name>
+		<tag-class>com.jsp.tlb.tag.PageTag</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<description>Collection of items to iterate over.</description>
+			<name>page</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>com.fw.common.dao.Page</type>
+		</attribute>
+		<attribute>
+			<description>表单的id</description>
+			<name>form</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	
+</taglib>

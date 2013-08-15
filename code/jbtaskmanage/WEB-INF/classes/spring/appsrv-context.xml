@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!-- 数字彩任务表管理  -->
+	<bean id="LottyJobService" parent="baseTransactionProxy">
+		<property name="target"> 
+			<bean class="com.jb.services.impls.LottyJobServiceImpl" />
+		</property>
+	</bean>
+	
+	<!-- 数字彩订单管理  -->
+	<bean id="LottyOrderService" parent="baseTransactionProxy">
+		<property name="target"> 
+			<bean class="com.jb.services.impls.LottyOrderServiceImpl" />
+		</property>
+	</bean>
+	
+	<!-- 期号管理  -->
+	<bean id="QihaoService" parent="baseTransactionProxy">
+		<property name="target"> 
+			<bean class="com.jb.services.impls.QihaoServiceImpl" />
+		</property>
+	</bean>
+</beans>

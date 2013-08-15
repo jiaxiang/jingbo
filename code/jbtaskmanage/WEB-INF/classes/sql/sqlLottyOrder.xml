@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="tblottyorder">
+	<typeAlias alias="lottyOrder" type="com.jb.entity.PlansLottyOrder" />
+	<typeAlias alias="ticketNums" type="com.jb.entity.TicketNums" />
+
+	<select id="getLottyOrderList" resultClass="lottyOrder"
+		parameterClass="lottyOrder">
+		<![CDATA[
+		SELECT 
+            lotty_order.id AS id,
+            lotty_order.basic_id AS basicId,
+            lotty_order.uid AS uid,
+            lotty_order.uname AS uname,
+            lotty_order.lotyid AS lotyId,
+            lotty_order.qihao AS qihao,
+            lotty_order.allmoney AS allMoney,
+            lotty_order.lotmulti AS lotMulti,
+            lotty_order.onemoney AS oneMoney,
+            lotty_order.nums AS nums,
+            lotty_order.rgnum AS rgnum,    
+            lotty_order.pmoney AS pmoney,
+            lotty_order.baodi AS baodi,
+            lotty_order.baodiMoney AS baodiMoney,
+            lotty_order.tctype AS tctype,
+            lotty_order.tcratio AS tcratio,
+            lotty_order.substat AS substat,
+            lotty_order.isfull AS isFull,
+            lotty_order.cpstat AS cpstat,
+            lotty_order.restat AS restat,
+            lotty_order.qsstat AS qsstat,
+            lotty_order.ggstat AS ggstat,
+            lotty_order.pjstat AS pjstat,
+            lotty_order.prebonus AS preBonus,
+            lotty_order.afterbonus AS afterBonus,
+            lotty_order.zjinfo AS zjinfo,
+            lotty_order.combonus AS comBonus,
+            lotty_order.comstat AS comstat,
+            lotty_order.buytype AS buyType
+		FROM plans_lotty_orders lotty_order  
+        WHERE lotty_order.qihao=#qihao#  
+        ]]>
+		<dynamic>
+			<isNotEmpty property="id">
+				<![CDATA[
+                  AND lotty_order.id=#id# 
+                ]]>
+			</isNotEmpty>
+		</dynamic>
+		<dynamic>
+			<isNotEmpty property="lotyId">
+				<![CDATA[
+                  AND lotty_order.lotyid=#lotyId# 
+                ]]>
+			</isNotEmpty>
+		</dynamic>
+		<dynamic>
+			<isNotEmpty property="restat">
+				<![CDATA[
+                  AND lotty_order.restat=#restat# 
+                ]]>
+			</isNotEmpty>
+		</dynamic>
+		<dynamic>
+			<isNotEmpty property="qsstat">
+				<![CDATA[
+                  AND lotty_order.qsstat=#qsstat# 
+                ]]>
+			</isNotEmpty>
+		</dynamic>
+		<dynamic>
+			<isNotEmpty property="ggstat">
+				<![CDATA[
+                  AND lotty_order.ggstat=#ggstat# 
+                ]]>
+			</isNotEmpty>
+		</dynamic>
+		<dynamic>
+			<isNotEmpty property="pjstat">
+				<![CDATA[
+                  AND lotty_order.pjstat=#pjstat# 
+                ]]>
+			</isNotEmpty>
+		</dynamic>
+		<dynamic>
+			<!--代购追号  -->
+			<isEqual property="buyType" compareValue="0">
+				<isNotEmpty property="buyTypeArr"
+					prepend="AND lotty_order.buytype IN ">
+					<iterate property="buyTypeArr" conjunction=","
+						open="(" close=")">
+						#buyTypeArr[]#
+					</iterate>
+				</isNotEmpty>
+				<![CDATA[
+                  AND lotty_order.afterbonus > 0 
+                ]]>
+			</isEqual>
+			<!-- 合买 -->
+			<isEqual property="buyType" compareValue="1">
+				<![CDATA[
+					AND lotty_order.buytype=#buyType# AND lotty_order.afterbonus > 0 
+				]]>
+			</isEqual>
+			<!-- 未中奖 -->
+			<isEqual property="buyType" compareValue="2">
+				<![CDATA[
+					AND lotty_order.afterbonus = 0 
+				 ]]>
+			</isEqual>
+		</dynamic>
+		<![CDATA[
+        ORDER BY lotty_order.id ASC
+        ]]>
+	</select>
+
+	<!-- 获得订单和投注的号码 -->
+	<select id="getLottyOrderConList" resultClass="lottyOrder"
+		parameterClass="lottyOrder">
+		<![CDATA[
+		SELECT 
+            lotty_order.id AS id,
+            lotty_order.basic_id AS basicId,
+            lotty_order.uid AS uid,
+            lotty_order.uname AS uname,
+            lotty_order.wtype AS playType,
+            lotty_order.lotyid AS lotyId,
+            lotty_order.qihao AS qihao,
+            lotty_order.allmoney AS allMoney,
+            lotty_order.lotmulti AS lotMulti,
+            lotty_order.onemoney AS oneMoney,
+            lotty_order.nums AS nums,
+            lotty_order.rgnum AS rgnum,    
+            lotty_order.pmoney AS pmoney,
+            lotty_order.baodi AS baodi,
+            lotty_order.baodiMoney AS baodiMoney,
+            lotty_order.tctype AS tctype,
+            lotty_order.tcratio AS tcratio,
+            lotty_order.substat AS substat,
+            lotty_order.isfull AS isFull,
+            lotty_order.cpstat AS cpstat,
+            lotty_order.restat AS restat,
+            lotty_order.qsstat AS qsstat,
+            lotty_order.ggstat AS ggstat,
+            lotty_order.pjstat AS pjstat,
+            lotty_order.prebonus AS preBonus,
+            lotty_order.afterbonus AS afterBonus,
+            lotty_order.zjinfo AS zjinfo,
+            lotty_order.combonus AS comBonus,
+            lotty_order.comstat AS comstat,
+            lotty_order.buytype AS buyType,
+            number_project.content AS content
+		FROM plans_lotty_orders lotty_order
+		left join lotty_number_projects number_project on number_project.pid=lotty_order.id  
+        WHERE 1=1
+        ]]>
+		<dynamic>
+			<isNotEmpty property="id">
+				<![CDATA[
+                  AND lotty_order.id=#id# 
+                ]]>
+			</isNotEmpty>
+		</dynamic>
+		<dynamic>
+			<isNotEmpty property="lotyId">
+				<![CDATA[
+                  AND lotty_order.lotyid=#lotyId# 
+                ]]>
+			</isNotEmpty>
+		</dynamic>
+		<dynamic>
+			<isNotEmpty property="qihao">
+				<![CDATA[
+                  AND lotty_order.qihao=#qihao# 
+                ]]>
+			</isNotEmpty>
+		</dynamic>
+		<dynamic>
+			<isNotEmpty property="qsstat">
+				<![CDATA[
+                  AND lotty_order.qsstat=#qsstat# 
+                ]]>
+			</isNotEmpty>
+		</dynamic>
+		<dynamic>
+			<isNotEmpty property="ggstat">
+				<![CDATA[
+                  AND lotty_order.ggstat=#ggstat# 
+                ]]>
+			</isNotEmpty>
+		</dynamic>
+		<dynamic>
+			<isNotEmpty property="pjstat">
+				<![CDATA[
+                  AND lotty_order.pjstat=#pjstat# 
+                ]]>
+			</isNotEmpty>
+		</dynamic>
+		<![CDATA[
+        ORDER BY lotty_order.id ASC
+        ]]>
+	</select>
+
+	<!-- 获得可以出票的订单列表 -->
+	<select id="getLottyOrderCPList" resultClass="lottyOrder"
+		parameterClass="lottyOrder">
+		<![CDATA[
+		SELECT 
+            lotty_order.id AS id,
+            lotty_order.basic_id AS basicId,
+            lotty_order.uid AS uid,
+            lotty_order.wtype AS playType,
+            lotty_order.uname AS uname,
+            lotty_order.lotyid AS lotyId,
+            lotty_order.qihao AS qihao,
+            lotty_order.allmoney AS allMoney,
+            lotty_order.lotmulti AS lotMulti,
+            lotty_order.onemoney AS oneMoney,
+            lotty_order.nums AS nums,
+            lotty_order.rgnum AS rgnum,    
+            lotty_order.pmoney AS pmoney,
+            lotty_order.baodi AS baodi,
+            lotty_order.baodiMoney AS baodiMoney,
+            lotty_order.tctype AS tctype,
+            lotty_order.tcratio AS tcratio,
+            lotty_order.substat AS substat,
+            lotty_order.isfull AS isFull,
+            lotty_order.cpstat AS cpstat,
+            lotty_order.restat AS restat,
+            lotty_order.qsstat AS qsstat,
+            lotty_order.ggstat AS ggstat,
+            lotty_order.pjstat AS pjstat,
+            lotty_order.prebonus AS preBonus,
+            lotty_order.afterbonus AS afterBonus,
+            lotty_order.zjinfo AS zjinfo,
+            lotty_order.combonus AS comBonus,
+            lotty_order.comstat AS comstat,
+            lotty_order.buytype AS buyType,
+            number_project.content AS content
+		FROM plans_lotty_orders lotty_order,
+			qihaos q_hao,
+			lotty_number_projects number_project  
+        WHERE q_hao.cpstat=1 
+        	AND lotty_order.id=number_project.pid
+			AND lotty_order.qihao=q_hao.qihao 
+			AND lotty_order.lotyid=q_hao.lotyid 
+			AND (lotty_order.baodimoney+lotty_order.rgnum*lotty_order.onemoney)/lotty_order.allmoney >=0.9  
+        ]]>
+		<dynamic>
+			<isNotEmpty property="qsstat">
+				<![CDATA[
+                  AND lotty_order.qsstat=#qsstat# 
+                ]]>
+			</isNotEmpty>
+		</dynamic>
+		<dynamic>
+			<isNotEmpty property="cpstat">
+				<![CDATA[
+                  AND lotty_order.cpstat=#cpstat# 
+                ]]>
+			</isNotEmpty>
+		</dynamic>
+		<dynamic>
+			<isNotEmpty property="restat">
+				<![CDATA[
+                  AND lotty_order.restat=#restat# 
+                ]]>
+			</isNotEmpty>
+		</dynamic>
+		<![CDATA[
+        ORDER BY lotty_order.id ASC
+        ]]>
+	</select>
+	<!-- ================更改撤单标识================ -->
+	<update id="updateLottyOrderByrestat" parameterClass="lottyOrder">
+		UPDATE plans_lotty_orders SET restat=#restat# WHERE id = #id#
+	</update>
+
+	<!-- ================更改订单清算标识================ -->
+	<update id="updateLottyOrderByqsstat" parameterClass="lottyOrder">
+		UPDATE plans_lotty_orders SET qsstat=#qsstat# WHERE id = #id#
+	</update>
+
+	<!-- ================更改订单过关统计相关信息================ -->
+	<update id="updateLottyOrderBygg" parameterClass="lottyOrder">
+		UPDATE plans_lotty_orders SET
+		prebonus=#preBonus#,afterbonus=#afterBonus#,zjinfo=#zjinfo#,ggstat=#ggstat#
+		WHERE id = #id#
+	</update>
+
+	<!-- ================更改订单派奖标识================ -->
+	<update id="updateLottyOrderBypjstat" parameterClass="lottyOrder">
+		UPDATE plans_lotty_orders SET pjstat=#pjstat# WHERE id = #id#
+	</update>
+
+	<!-- ================更改发起人派送奖金及标识================ -->
+	<update id="updateLottyOrderBycombonous"
+		parameterClass="lottyOrder">
+		UPDATE plans_lotty_orders SET
+		combonus=#comBonus#,comstat=#comstat# WHERE id = #id#
+	</update>
+
+	<!-- ================更改出票标识================ -->
+	<update id="updateLottyOrderBycpstat" parameterClass="lottyOrder">
+		UPDATE plans_lotty_orders SET cpstat=#cpstat# WHERE id = #id#
+	</update>
+
+	<!-- ================插入出票表================ -->
+	<insert id="insertTicketNums" parameterClass="ticketNums">
+
+		INSERT INTO ticket_nums(order_num, plan_id, ticket_type,
+		play_method, codes,codes_print, rate, zjstat, money, status,
+		time_add) VALUES(#orderNum#, #pid#, #ticketType#, #playMethod#,
+		#codes#,#codesPrint#, #rate#, #zjstat#, #money#, #status#,
+		#timeAdd#)
+	</insert>
+
+
+</sqlMap>

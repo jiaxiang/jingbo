@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<!--字符编码  -->
+	<filter>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<filter-class>
+			org.springframework.web.filter.CharacterEncodingFilter
+		</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	 
+	<filter>
+		<filter-name>authentication</filter-name>
+		<filter-class>
+			com.fwprj.common.user.filter.AuthenticationFilter
+		</filter-class>
+		<init-param>
+			<param-name>except</param-name>
+			<param-value>
+				.*/img/.*, .*\.css, .*\.js,.*/favicon.ico,.*\.htm,.*\.html,.*\.gif,
+				/extjs/resources/css/.*,/extjs/resources/images/.*,/extjs/*.js,.*\.json,
+				.*\.jsp, /showMenu.do, /pub/validate.do, /login.do,/logout.do,/srv/validateCode.*,
+				/dwr/*,.*/out/.*
+			</param-value>
+		</init-param>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>authentication</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<!--访问页面  -->
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	<!--struts start-->
+	<servlet>
+		<servlet-name>action</servlet-name>
+		<servlet-class>
+			org.apache.struts.action.ActionServlet
+		</servlet-class>
+		<init-param>
+			<param-name>config</param-name>
+			<param-value>
+				/WEB-INF/classes/struts/struts-config.xml,/WEB-INF/classes/struts/user-struts-config.xml,
+				/WEB-INF/classes/struts/app-struts-config.xml
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>debug</param-name>
+			<param-value>3</param-value>
+		</init-param>
+		<init-param>
+			<param-name>detail</param-name>
+			<param-value>3</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>action</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+	<!--struts end-->
+
+	<!--dwr start-->
+	  <listener>
+	    <listener-class>org.directwebremoting.servlet.EfficientShutdownServletContextAttributeListener</listener-class>
+	  </listener>
+	  <listener>
+	    <listener-class>org.directwebremoting.servlet.EfficientShutdownServletContextListener</listener-class>
+	  </listener>
+	  
+	  <servlet>
+	    <servlet-name>dwr-invoker</servlet-name>
+	    <servlet-class>org.directwebremoting.servlet.DwrServlet</servlet-class>
+	
+	    <!-- This should NEVER be present in live -->
+	    <init-param>
+	      <param-name>debug</param-name>
+	      <param-value>true</param-value>
+	    </init-param>
+	
+	    <!-- Remove this unless you want to use active reverse ajax -->
+	    <init-param>
+	      <param-name>activeReverseAjaxEnabled</param-name>
+	      <param-value>true</param-value>
+	    </init-param>
+	
+	    <!-- By default DWR creates application scope objects when they are first
+	    used. This creates them when the app-server is started -->
+	    <init-param>
+	      <param-name>initApplicationScopeCreatorsAtStartup</param-name>
+	      <param-value>true</param-value>
+	    </init-param>
+	
+	    <!-- This enables full streaming mode. It's probably better to leave this
+	    out if you are running across the internet -->
+	    <init-param>
+	      <param-name>maxWaitAfterWrite</param-name>
+	      <param-value>-1</param-value>
+	    </init-param>
+	
+	    <!--
+	    For more information on these parameters, see:
+	    - http://getahead.org/dwr/server/servlet
+	    - http://getahead.org/dwr/reverse-ajax/configuration
+	    -->
+	
+	    <load-on-startup>1</load-on-startup>
+	  </servlet>
+	
+	  <servlet-mapping>
+	    <servlet-name>dwr-invoker</servlet-name>
+	    <url-pattern>/dwr/*</url-pattern>
+	  </servlet-mapping>
+	<!--dwr end -->
+	
+	<!--验证码 start -->
+	<servlet>
+	  <servlet-name>ValidateCodeServlet</servlet-name>
+      <servlet-class>com.fwprj.common.util.ValidateCodeServlet</servlet-class>
+      <init-param> 
+      <param-name>width</param-name> 
+      <param-value>72</param-value> 
+      </init-param> 
+      <init-param> 
+      <param-name>height</param-name> 
+      <param-value>21</param-value> 
+      </init-param> 
+      <init-param> 
+      <param-name>codeCount</param-name> 
+      <param-value>4</param-value> 
+      </init-param>
+    </servlet>
+    <servlet-mapping>
+      <servlet-name>ValidateCodeServlet</servlet-name>
+      <url-pattern>/srv/validateCode</url-pattern>
+    </servlet-mapping>
+	<!--验证码 end -->
+	
+</web-app>

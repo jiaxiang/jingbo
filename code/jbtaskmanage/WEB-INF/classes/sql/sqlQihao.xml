@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+    
+<sqlMap namespace="tbqihao">
+    <typeAlias alias="qihao" type="com.jb.entity.Qihao" />
+    <typeAlias alias="qihaoExt" type="com.jb.entity.QihaoExt" />
+ 
+    <!-- 更改期号表清算标识 -->
+    <update id="updateQihaoByStat" parameterClass="qihao">
+        UPDATE qihaos  
+        SET qsstat=#qsstat# 
+        WHERE lotyid = #lotyId# 
+        	AND qihao = #qihao#
+        	  
+	</update>
+	<!-- 更改期号表过关标识 -->
+    <update id="updateQihaoByGgstat" parameterClass="qihao">
+        UPDATE qihaos  
+        SET ggstat=#ggstat# 
+        WHERE lotyid = #lotyId# 
+        	AND qihao = #qihao#
+        	  
+	</update>
+	<!-- 更改期号表派奖标识 -->
+    <update id="updateQihaoByPjstat" parameterClass="qihao">
+        UPDATE qihaos  
+        SET pjstat=#pjstat# 
+        WHERE lotyid = #lotyId# 
+        	AND qihao = #qihao#
+        	  
+	</update>
+	<!-- 查询期号表记录 -->
+	<select id="getQihao" 
+            resultClass="qihao"
+            parameterClass="qihao">
+        <![CDATA[
+		SELECT 
+            q.id AS id,
+            q.qihao AS qihao,
+            q.lotyid AS lotyId,
+            q.qsstat AS qsstat,
+            q.ggstat AS ggstat
+		FROM qihaos q 
+        WHERE 1 = 1 
+        ]]>
+          <dynamic>
+            <isNotEmpty property="lotyId">
+                <![CDATA[
+                  AND q.lotyid=#lotyId# 
+                ]]>
+            </isNotEmpty>
+          </dynamic>   
+          <dynamic>
+            <isNotEmpty property="qihao">
+                <![CDATA[
+                  AND q.qihao=#qihao# 
+                ]]>
+            </isNotEmpty>
+          </dynamic>
+    </select>
+    <!-- 查询期号扩展表记录 -->
+	<select id="getQihaoExt" 
+            resultClass="qihaoExt"
+            parameterClass="qihaoExt">
+        <![CDATA[
+		SELECT 
+            q_ext.id AS id,
+            q_ext.qid AS qid,
+            q_ext.bonusinfo AS bonusInfo,
+            q_ext.lotyid AS lottyId,
+            q_ext.qihao AS qihao,
+            q_ext.awardnum AS awardnum,
+            q.qsstat AS qsstat,
+            q.pjstat AS pjstat,
+            q.ggstat AS ggstat  
+		FROM qihao_exts q_ext,qihaos q  
+        WHERE q.id = q_ext.qid 
+        ]]>
+          <dynamic>
+            <isNotEmpty property="lottyId">
+                <![CDATA[
+                  AND q_ext.lotyid=#lottyId# 
+                ]]>
+            </isNotEmpty>
+          </dynamic>   
+          <dynamic>
+            <isNotEmpty property="qihao">
+                <![CDATA[
+                  AND q_ext.qihao=#qihao# 
+                ]]>
+            </isNotEmpty>
+          </dynamic>   
+            
+        <![CDATA[
+        ORDER BY q_ext.id ASC
+        ]]>
+    </select>
+</sqlMap>

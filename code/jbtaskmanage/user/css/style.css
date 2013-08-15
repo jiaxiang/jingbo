@@ -1,0 +1,81 @@
+form {MARGIN: 0px;}
+
+td {
+	FONT-SIZE: 11px; COLOR: #000000; FONT-FAMILY: "Tahoma","Lucida Console","Arial"; TEXT-DECORATION: none
+}
+body {
+	FONT-SIZE: 12px; MARGIN: 0px; COLOR: #000000; FONT-FAMILY: "Tahoma","宋体","Lucida Console","Arial"; TEXT-DECORATION: none
+}
+.white {
+	COLOR: #ffffff
+}
+.wrong {
+	COLOR: #ff0000; font-style:italic;
+}
+.title {
+	FONT-SIZE: 14px; COLOR: #000000; font-weight:bold;
+}
+
+.clear {
+	LINE-HEIGHT: 20px
+}
+.highlight {
+	COLOR: #003399; LINE-HEIGHT: 25px
+}
+.supersock {
+	FONT-SIZE: 12px; LINE-HEIGHT: 200%
+}
+.entext {
+	FONT-SIZE: 10px
+}
+.bigtext {
+	FONT-SIZE: 14px
+}
+.bigredtext {
+	FONT-SIZE: 16px; COLOR: #ff0000
+}
+A:active {
+	COLOR: #0d0d15; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #443f76; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #0066cc; TEXT-DECORATION: none
+}
+A:link {
+	COLOR: #443f76; TEXT-DECORATION: none
+}
+A.top:visited {
+	COLOR: #ffffff
+}
+A.top:link {
+	COLOR: #ffffff
+}
+A.top:hover {
+	COLOR: #66ffff
+}
+A.high:visited {
+	FONT-SIZE: 11px; COLOR: #ccff00
+}
+A.high:link {
+	FONT-SIZE: 11px; COLOR: #ccff00
+}
+A.high:hover {
+	FONT-SIZE: 11px; COLOR: #66ffff
+}
+A.move:hover {
+	LEFT: 1px; POSITION: relative; TOP: 1px
+}
+.button {
+	BORDER-RIGHT: #666666 1px solid; BORDER-TOP: #666666 1px solid; PADDING-LEFT: 5px; FONT-SIZE: 11px; BACKGROUND-IMAGE: url(../images/buttonbk.gif); BORDER-LEFT: #666666 1px solid; CURSOR: pointer; BORDER-BOTTOM: #666666 1px solid; FONT-FAMILY: "Tahoma","Lucida Console","Arial"; HEIGHT: 22px; BACKGROUND-COLOR: #ffffff
+}
+.formstyle {
+	BORDER-RIGHT: #a8aab9 1px solid; BORDER-TOP: #585a67 1px solid; FONT-SIZE: 11px; BORDER-LEFT: #585a67 1px solid; BORDER-BOTTOM: #a8aab9 1px solid; FONT-FAMILY: "Tahoma","Lucida Console","Arial"; BACKGROUND-COLOR: #ffffff
+}
+.mn0 {
+	BORDER-RIGHT: #000000 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #000000 1px solid; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; BORDER-LEFT: #000000 1px solid; PADDING-TOP: 0px; BORDER-BOTTOM: #000000 1px solid
+}
+.mn1 {
+	BORDER-RIGHT: #000000 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #000000 1px solid; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; BORDER-LEFT: #000000 1px solid; PADDING-TOP: 0px; BORDER-BOTTOM: #000000 1px solid; BACKGROUND-COLOR: #f5f1fd
+}

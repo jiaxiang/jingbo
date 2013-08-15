@@ -1,0 +1,111 @@
+
+//==================================================================================================
+// ?????? checkbox ?????????.
+// =================================================================================================
+
+/**
+ @function:         ???????????checkbox(?controler)???,???????checkbox???,
+ 										??controler??????, ???checkbox???,????.
+ 										??????form??, ??????????checkbox??????.
+ @author:           QiJunbo
+ @Copyright
+ 
+ @ boxesName:       ??:String?          ??: ??????name???
+ @ controler        ??:checkbox??	   ??: ??checkbox??
+
+**/
+
+function setSelectAll( boxesName,controler)
+{
+	    for( i = 0;i < document.all.length; i++ ) {
+      		var e=document.all[i];
+     			if ((e.type == "checkbox" )&&( e.name == boxesName )) {
+     	   	 		e.checked = controler.checked;
+     	   	 		}
+          }		
+
+}
+
+/**
+ @function					???????,??checkflag(boolean?)?????checkbox?????.
+ 
+ @author:           QiJunbo
+ @Copyright
+
+ @ boxesName:       ??:String?          ??: ??????name???
+ @ checkflag        ??:boolean??	   ??: true ???  false ???
+
+**/
+
+function selectAll( boxesName,checkflag)
+{
+	
+	    for( i = 0;i < document.all.length; i++ ) {
+      		var e=document.all[i];
+     			if ((e.type == "checkbox" )&&( e.name == boxesName )) {
+     	   	 		e.checked = checkflag;
+     	   	 		}
+          }		
+
+}
+
+/**
+ @function					??, ???form???checkbox ????.
+ @author:           QiJunbo
+ @Copyright
+
+ @ form:            ??:form??,         ??: ????,
+ @ boxesName:       ??:String?          ??: ??????name???
+
+**/
+
+function reverseSelect( boxesName)
+{
+	
+	    for( i = 0;i < document.all.length; i++ ) {
+      		var e=document.all[i];
+     			if ((e.type == "checkbox" ) &&( e.name == boxesName )) {
+     	   	 		e.checked = !e.checked       	   	 		}
+          }	
+}
+
+
+
+/**
+ @function          ????form?, ??checkbox?????checkbox????,??????(controler)??????????
+ 										??, ????????checkbox?????, ?????(controler)????????.
+ @author:           QiJunbo
+ @copyright
+
+ @boxesName:       ??:String?          ??: ??????name???
+ @controler        ??:checkbox??	   ??: ??checkbox??
+
+**/
+
+function synchronize( boxesName,controler)
+{
+		var all = 0;
+		for( i = 0;i < document.all.length; i++ ) {
+			var e=document.all[i];
+			if(( e.type == "checkbox" )&&( e.name == boxesName ))
+			{ all ++ ;}
+		}
+		
+		/* ??????????0 */
+		if(all == 0 ){
+		    controler.checked = false;
+			return;
+		}
+		
+	    for( i = 0;i < document.all.length; i++ ) {
+      		var e=document.all[i];
+     			if (( e.type == "checkbox" )&&( e.name == boxesName )&&( !e.checked )) {
+     				controler.checked = false;
+				return;
+     			}       	   	 		
+          }
+          
+          controler.checked = true;
+
+}
+ 

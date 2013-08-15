@@ -1,2 +1,3 @@
-application/cache/*
-application/logs/*
+code/application/cache/*
+code/application/logs/*
+code/attachment/*

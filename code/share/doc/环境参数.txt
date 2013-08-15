@@ -1,0 +1,5 @@
+环境要求：
+apache 2.2
+php 5.1
+mysql 5.1
+memcache

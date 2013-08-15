@@ -1,0 +1,7 @@
+.alert_s_wrap { width:425px; height:250px; position:absolute; z-index:9999;}
+.alert_s_box { border:#4a84c4 solid 1px; height:100%; width:100%; background:#f7faff; position:relative; top:-7px; left:-8px; z-index:9999}
+.alert_s_title { height:26px; line-height:26px; background:url(/images/alert/alert_bg_sprite.png) repeat-x; color:#4a84c4; font-size:14px; font-weight:bold; text-indent:12px; }
+.alert_s_title span { float:left; display:inline}
+.alert_s_title .alert_closeBtn { float:right; text-indent:-9999px; width:43px; height:16px; overflow:hidden; background:url(/images/alert/alert_img_sprite.png) no-repeat; margin-right:8px; cursor:pointer}
+.alert_s_title a.alert_closeBtn:hover { background-position:0 -16px;}
+.alert_s_shadow { height:100%; width:100%; position:relative; top:-100%; _top:-50%; background:#000; z-index:9995; filter:alpha(opacity=20); opacity:0.2;}

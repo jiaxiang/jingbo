@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+    
+<sqlMap namespace="tblottyjobs">
+    <typeAlias alias="lottyJobs" type="com.jb.entity.LottyJobs" />
+    
+    <select id="getLottyJobsList" 
+            resultClass="lottyJobs"
+            parameterClass="lottyJobs">
+        <![CDATA[
+		SELECT 
+            l_jobs.id AS id,
+            l_jobs.lottyid AS lottyId,
+            l_jobs.qihao AS qihao,
+            l_jobs.tasktype AS taskType,
+            l_jobs.ctime AS ctime,
+            l_jobs.stime AS stime,
+            l_jobs.etime AS etime,
+            l_jobs.manager AS manager,
+            l_jobs.stat AS stat,
+            l_jobs.description AS description,
+            l_jobs.note AS note   
+		FROM lotty_jobs l_jobs 
+        WHERE 1 = 1 
+        ]]>
+          <dynamic>
+            <isNotEmpty property="taskType">
+                <![CDATA[
+                  AND l_jobs.tasktype=#taskType# 
+                ]]>
+            </isNotEmpty>
+          </dynamic>   
+          <dynamic>
+            <isNotEmpty property="stat">
+                <![CDATA[
+                  AND l_jobs.stat=#stat# 
+                ]]>
+            </isNotEmpty>
+          </dynamic>   
+            
+        <![CDATA[
+        ORDER BY l_jobs.id ASC
+        ]]>
+    </select>
+    
+    <!-- 更改执行信息 -->
+    <update id="updateLottyJobByStat" parameterClass="lottyJobs">
+        UPDATE lotty_jobs  
+        SET stime=#stime#,etime=#etime#,stat=#stat#,note=#note#,description=#description# 
+        WHERE id = #id#
+	</update>
+</sqlMap>

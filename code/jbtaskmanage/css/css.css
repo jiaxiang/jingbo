@@ -1,0 +1,54 @@
+TD {
+	FONT-SIZE: 12px; COLOR: #000000; WORD-BREAK: break-all
+}
+TEXTAREA {
+	FONT-SIZE: 12px; COLOR: #000000; WORD-BREAK: break-all
+}
+.logininput {
+	BORDER-RIGHT: #cccccc 1px solid; BORDER-TOP: #cccccc 1px solid; FONT-SIZE: 12px; BACKGROUND: #cccccc; BORDER-LEFT: #cccccc 1px solid; COLOR: #000000; PADDING-TOP: 0px; BORDER-BOTTOM: #ffffff 1px solid; HEIGHT: 20px
+}
+.input1 {
+	BORDER-RIGHT: #004e73 1px solid; BORDER-TOP: #ffcc00 1px solid; FONT-SIZE: 12px; BACKGROUND: #ffcc00; BORDER-LEFT: #cccccc 1px solid; COLOR: #000000; PADDING-TOP: 1px; BORDER-BOTTOM: #004e73 1px solid; HEIGHT: 20px
+}
+.input2 {
+	BORDER-RIGHT: #cccccc 1px solid; BORDER-TOP: #cccccc 1px solid; FONT-SIZE: 12px; BACKGROUND: #ffffff; BORDER-LEFT: #cccccc 1px solid; COLOR: #000000; PADDING-TOP: 0px; BORDER-BOTTOM: #cccccc 1px solid; FONT-FAMILY: "ËÎÌו"; HEIGHT: 20px
+}
+.bginput {
+	BORDER-RIGHT: #666666 1px solid; BORDER-TOP: #666666 1px solid; FONT-SIZE: 12px; BACKGROUND-IMAGE: url(/images/inP_bg.gif); BORDER-LEFT: #666666 1px solid; BORDER-BOTTOM: #666666 1px solid; HEIGHT: 20px; BACKGROUND-COLOR: #ffffff
+}
+A:link {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #336699; TEXT-DECORATION: underline
+}
+A:active {
+	TEXT-DECORATION: none
+}
+LI {
+	FONT-SIZE: 14px; COLOR: #000000; WORD-BREAK: break-all
+}
+.foot3D {
+	FILTER: DropShadow(color=#ffffff,OffX=-1,OffY=-1,Positive=1); POSITION: relative; HEIGHT: 1px
+}
+.numstyle {
+	FONT-SIZE: 11px; FONT-FAMILY: verdana
+}
+.btitle {
+	FONT-SIZE: 14px; COLOR: #000000; WORD-BREAK: break-all
+}
+.fc336 { color:#30608F; font-size:14px;}
+.fc333 { color:#333333; font-size:14px;}
+.fc999 {color: #999999}
+.fc777 {color: #777777}
+.B{ font-weight:bold;}
+
+.ft13{ font-size:13px;}
+
+.line1{ border-bottom:2px solid #CCCCCC;}
+.line2{ border-top:2px solid #CCCCCC; border-left:2px solid #CCCCCC; border-right:2px solid #CCCCCC; background:#FFFFFF; color:#999999; font-weight:bold; width:119px; height:28px; line-height:28px; cursor:pointer;}
+.line3{ border:2px solid #CCCCCC;background:#FFF7DF;color:#999999; font-weight:bold;width:119px; height:28px;line-height:28px;cursor:pointer;}
+

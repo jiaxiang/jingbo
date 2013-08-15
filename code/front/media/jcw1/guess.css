@@ -1,0 +1,9 @@
+/* CSS Document */
+.guess{ width:990px; margin:0 auto;}
+.guess_top{height:339px; background:url(images/guess_top.jpg) no-repeat;}
+.guess_content{ width:830px; background:url(images/guess_content.jpg) repeat-y; padding:30px 80px; }
+.guess_bottom{height:109px; background:url(images/guess_bottom.jpg) no-repeat; }
+.text_title{ font-size:16px; font-weight:bold; color:#f86605;}
+.guess p{ font-size:14px; line-height:2;}
+.text_red{font-weight:bold; color:#FF0000;}
+.text_red a:link,.text_red a:visited{ color:#FF0000; text-decoration:none;}

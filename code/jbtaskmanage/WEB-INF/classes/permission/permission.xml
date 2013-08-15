@@ -1,0 +1,22 @@
+<Permissions>
+	<Permission type="com.fw.common.permission.DefaultPermission">
+		<paths>
+			<path path="/MyJsp.jsp" forward="/login.jsp" />
+			<path path="/test.do" forward="/login.jsp" />
+			<path path="/saveUserInfo2" />
+			<path path="/saveUserInfo3" />
+		</paths>
+	</Permission>
+	<Permission type="com.fw.common.permission.UserPermission">
+		<paths>
+			<path path="/saveUserInfo5" forward="/dd5.jsp" />
+			<path path="/saveUserInfo6" />
+		</paths>
+	</Permission>
+	<Permission type="com.fw.common.permission.DefaultPermission">
+		<paths>
+			<path path="/saveUserInfo7" forward="/dd7.jsp" />
+			<path path="/saveUserInfo8" forward="/dd7.jsp" />
+		</paths>
+	</Permission>
+</Permissions>

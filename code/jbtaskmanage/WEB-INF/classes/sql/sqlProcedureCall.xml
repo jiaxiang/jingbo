@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="PROCEDURE">
+
+	<parameterMap class="java.util.Map" id="clearbaodi">
+		<parameter property="pid" jdbcType="INTEGER"
+			javaType="java.lang.Integer" mode="IN" />
+		<parameter property="stype" jdbcType="INTEGER"
+			javaType="java.lang.Integer" mode="IN" />
+			<parameter property="result" jdbcType="INTEGER"
+			javaType="java.lang.Integer" mode="OUT" />
+	</parameterMap>
+
+	<parameterMap class="java.util.Map" id="revorder">
+		<parameter property="gid" jdbcType="INTEGER"
+			javaType="java.lang.Integer" mode="IN" />
+		<parameter property="revtype" jdbcType="INTEGER"
+			javaType="java.lang.Integer" mode="IN" />
+		<parameter property="ordernum" jdbcType="INTEGER"
+			javaType="java.lang.Integer" mode="IN" />
+		<parameter property="result" jdbcType="VARCHAR"
+			javaType="java.lang.String" mode="OUT" />
+	</parameterMap>
+	
+	<parameterMap class="java.util.Map" id="buyOrder">
+		<parameter property="pid" jdbcType="INTEGER"
+			javaType="java.lang.Integer" mode="IN" />
+		<parameter property="rnum" jdbcType="INTEGER"
+			javaType="java.lang.Integer" mode="IN" />
+		<parameter property="uid" jdbcType="INTEGER"
+			javaType="java.lang.Integer" mode="IN" />
+		<parameter property="uname" jdbcType="VARCHAR"
+			javaType="java.lang.String" mode="IN" />
+		<parameter property="ordernum" jdbcType="INTEGER"
+			javaType="java.lang.Integer" mode="IN" />
+		<parameter property="source" jdbcType="INTEGER"
+			javaType="java.lang.Integer" mode="IN" />
+		<parameter property="stat" jdbcType="VARCHAR"
+			javaType="java.lang.String" mode="OUT" />
+	</parameterMap>
+	
+	<parameterMap class="java.util.Map" id="sendBonus">
+		<parameter property="money" jdbcType="DECIMAL"
+			javaType="java.math.BigDecimal" mode="IN" />
+		<parameter property="uid" jdbcType="INTEGER"
+			javaType="java.lang.Integer" mode="IN" />
+		<parameter property="pmid" jdbcType="INTEGER"
+			javaType="java.lang.Integer" mode="IN" />
+		<parameter property="stype" jdbcType="INTEGER"
+			javaType="java.lang.Integer" mode="IN" />
+		<parameter property="result" jdbcType="VARCHAR"
+			javaType="java.lang.String" mode="OUT" />
+	</parameterMap>
+
+	<!-- ===============清保操作================= -->
+	<procedure id="qsClearBaodi" parameterMap="clearbaodi" resultClass="java.lang.Integer">
+		<![CDATA[
+      	{call clearbaodi(?,?,?)}
+  		]]>
+	</procedure>
+
+	<!-- ===============撤单操作================= -->
+	<procedure id="qsRevorder" parameterMap="revorder" resultClass="java.lang.String">
+		<![CDATA[
+      	{call rev_order(?,?,?,?)}
+  		 ]]>
+	</procedure>
+	
+	<!-- ===============收底认购操作================= -->
+	<procedure id="qsBuyOrder" parameterMap="buyOrder" resultClass="java.lang.String">
+		<![CDATA[
+      	{call subgd (?,?,?,?,?,?,?)}
+  		 ]]>
+	</procedure>
+	
+	<!-- ===============派奖操作操作================= -->
+	<procedure id="pjBonus" parameterMap="sendBonus" resultClass="java.lang.String">
+		<![CDATA[
+      	{call grantbonus (?,?,?,?,?)}
+  		 ]]>
+	</procedure>
+</sqlMap>

@@ -1,0 +1,25 @@
+﻿body { margin:0 0 0 3;font-family: verdana, helvetica, arial, sans-serif;  font-size:12px;}
+ul,li{ padding:0; margin:0; list-style:none;}
+.login{width:180px; margin:15px; }
+.login1{background-image:url(img/navback.gif);width:180px; height:25px;font-size: 12px;padding-left: 15px; line-height:25px;}
+.login2{ width:180px; background-color:#fff; text-align:center; padding:10px 0;}
+#mainMenu {color: #000;width: 180px; margin-left:15px;}
+#menuList {margin: 0px;padding: 10px 0px 10px 15px;}
+li.menubar {background: url(/images/plus.gif) no-repeat 0em 0.3em;font-size: 12px;line-height: 1.5em;list-style: none outside;}
+.menu, .submenu {display: none;padding:0 0 0 10px;width:180px; background-color:#fff;}
+.navbottom{ width:179px; background-image:url(img/navbottom.gif); height:7px; font-size:0; line-height:0;}
+.menu li, .submenu li {background: url(/images/square.gif) no-repeat 0em 0.3em;list-style: none outside;padding:5px 0;background-color:#fff;}
+a.actuator {background-image:url(img/navback.gif);width:180px; height:25px;line-height:25px;color: #000;font-size: 12px;padding-left: 15px;text-decoration: none;}
+a.actuator:hover {text-decoration: none;}
+.menu li a, .submenu li a {background-color: transparent;color: #000;font-size: 12px;padding-left: 15px;text-decoration: none;}
+.menu li a:hover, submenu li a:hover {text-decoration: underline;}
+span.key {text-decoration: underline;}
+.b{ font-weight:bold;}
+.line{ border-bottom:1px dashed #B6D1F4;}
+.line2{ border-bottom:2px solid #3E61A9;}
+.ft000{ color:#000000;}
+.red {color: #FF0000}
+.frame{ width:770px; margin:0 auto; background-color:#D8E9FF;}
+a:link,a:visited,a.under:hover, a.none:link, a.none:visited, a.none:hover{ text-decoration:none; }
+a:hover, a.under:link, a.under:visited{ text-decoration:underline;}
+

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd" version="2.0">
+
+	<description>JSTL 1.1 functions library</description>
+	<display-name>JSTL functions</display-name>
+	<tlib-version>1.1</tlib-version>
+	<short-name>f</short-name>
+	<uri>http://java.sun.com/jsp/jstl/functions</uri>
+
+	<function>
+		<description>对一个字符串进行截短操作，这里汉字的宽度按英文字符的两倍算。 一般点阵字体中文字符宽度是半角字符的两倍，但是矢量字体并不遵循这个规律，i的宽度和A不一样。 如果str为null， 返回null 如果str的宽度没有超过length, 直接返回str 如果str的宽度超过length，返回length-1个字符，并且加上半个中文省略号"…"</description>
+		<name>cutshort</name>
+		<function-class>com.jsp.tlb.lang.WebFunctions</function-class>
+		<function-signature>java.lang.String cutshort(java.lang.String, int)</function-signature>
+		<example>${f:cutshort(zip, 31)}</example>
+	</function>
+
+	<function>
+		<description>获取字符串的字节数</description>
+		<name>byteLength</name>
+		<function-class>com.jsp.tlb.lang.WebFunctions</function-class>
+		<function-signature>int byteLength(java.lang.String, java.lang.String)</function-signature>
+		<example>${f:byteLength(zip,'utf-8')}</example>
+	</function>
+</taglib>

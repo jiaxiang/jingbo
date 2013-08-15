@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+	<data-sources />
+	
+	<form-beans>
+		<form-bean name="accountForm" type="com.fw.author.form.AccountForm" />
+	</form-beans>
+
+	<global-exceptions />
+	
+	<global-forwards>
+		<forward name="global_login" path="/login.jsp" />
+	</global-forwards>
+
+	<!-- 扩展ActionMapping类，加入自定义标签 -->
+	<action-mappings type="com.fw.common.action.FrameBaseActionMapping">
+
+		<action path="/test" type="com.fw.author.action.TestAction" parameter="test">
+			<set-property property="loginRequired" value="false" />
+			<set-property property="beforeMethod" value="true" />
+			<set-property property="afterMthod" value="true" />
+			<forward name="INDEX" path="/index.jsp" />
+		</action>
+
+		<action path="/save" type="com.fw.author.action.TestAction" name="accountForm" parameter="save">
+			<forward name="success" path="/list.do" />
+		</action>
+
+		<action path="/edit" type="com.fw.author.action.TestAction" name="accountForm" parameter="edit">
+			<forward name="edit" path="/edit.jsp" />
+		</action>
+
+		<action path="/view" type="com.fw.author.action.TestAction"  parameter="view">
+			<forward name="view" path="/view.jsp" />
+		</action>
+
+		<action path="/delete" type="com.fw.author.action.TestAction"  parameter="delete">
+			<forward name="success" path="/list.do" />
+		</action>
+
+		<action path="/list" type="com.fw.author.action.TestAction"  parameter="list">
+			<forward name="list" path="/list.jsp" />
+		</action>
+
+			
+		<action path="/validate" parameter="method" scope="request" type="com.fw.common.action.ValidateNumberAction" validate="false" />
+
+	</action-mappings>
+
+	<message-resources parameter="com.fw.struts.ApplicationResources" />
+
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames" value="/WEB-INF/classes/struts/validator-rules.xml" />
+	</plug-in>
+
+	<!-- 装载权限配置文件 -->
+	<plug-in className="com.fw.common.util.PermissionPluin">
+		<set-property property="permissionConfigLocation" value="permission/permission.xml" />
+	</plug-in>
+
+	<!-- 装载spring配置文件 ContextLoaderPlugIn-->
+	<plug-in className="com.fw.common.util.FramePluin">
+		<set-property property="contextConfigLocation" value="spring/applicationContext.xml,spring/user-context.xml,spring/appsrv-context.xml,spring/quartzjob-context.xml" />
+		<set-property property="webRootPath" value="/" />
+	</plug-in>
+</struts-config>
+

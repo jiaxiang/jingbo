@@ -1,0 +1,19 @@
+<?PHP exit;?>	1312359903	uuuuuuu	uu***u		127.0.0.1
+<?PHP exit;?>	1312359907	uuuuuuu	uu***u		127.0.0.1
+<?PHP exit;?>	1312445916	jiu	j***u		127.0.0.1
+<?PHP exit;?>	1312445925	jiu	j***u		127.0.0.1
+<?PHP exit;?>	1312508499	aaaa	a***a		127.0.0.1
+<?PHP exit;?>	1312508503	aaaa	a***a		127.0.0.1
+<?PHP exit;?>	1312788932	fagnxianming	fag***ng		127.0.0.1
+<?PHP exit;?>	1312790832	liming	li***g		127.0.0.1
+<?PHP exit;?>	1312792792	kukuku	ku***u		127.0.0.1
+<?PHP exit;?>	1312891112	wangfei	wa***i		127.0.0.1
+<?PHP exit;?>	1313113072	ikikiki3	ik***3		127.0.0.1
+<?PHP exit;?>	1313388647	zhangji	22***2		127.0.0.1
+<?PHP exit;?>	1313388651	zhangji	11***1		127.0.0.1
+<?PHP exit;?>	1313388986	zhangji	22***2		127.0.0.1
+<?PHP exit;?>	1313389120	zhangji	22***2		127.0.0.1
+<?PHP exit;?>	1313389627	zhangji	aa***a		127.0.0.1
+<?PHP exit;?>	1313390298	zhangji	qq***q		127.0.0.1
+<?PHP exit;?>	1313390302	zhangji	11***1		127.0.0.1
+<?PHP exit;?>	1313456933	zhangji			127.0.0.1

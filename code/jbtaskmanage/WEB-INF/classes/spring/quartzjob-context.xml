@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<bean
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="qsExecuteTrigger" />
+				<ref bean="ggExecuteTrigger" />
+				<ref bean="pjExecuteTrigger" />
+				<ref bean="cpExecuteTrigger" />
+			</list>
+		</property>
+	</bean>
+
+	<!-- 清算任务 -->
+	<bean id="qsExecuteJob"
+		class="org.springframework.scheduling.quartz.JobDetailBean">
+		<property name="jobClass">
+			<value>com.jb.cron.QSExecuteJob</value>
+		</property>
+		<property name="jobDataAsMap">
+			<map>
+				<entry key="lottyJobService">
+					<ref bean="LottyJobService" />
+				</entry>
+				<entry key="lottyOrderService">
+					<ref bean="LottyOrderService" />
+				</entry>
+				<entry key="qihaoService">
+					<ref bean="QihaoService" />
+				</entry>
+			</map>
+		</property>
+	</bean>
+	<bean id="qsExecuteTrigger"
+		class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="qsExecuteJob" />
+		</property>
+		<property name="cronExpression">
+			<value>0 * * * * ?</value>
+		</property>
+	</bean>
+	<!-- 清算任务结束 -->
+	
+	<!-- 过关任务 -->
+	<bean id="ggExecuteJob"
+		class="org.springframework.scheduling.quartz.JobDetailBean">
+		<property name="jobClass">
+			<value>com.jb.cron.GGExecuteJob</value>
+		</property>
+		<property name="jobDataAsMap">
+			<map>
+				<entry key="lottyJobService">
+					<ref bean="LottyJobService" />
+				</entry>
+				<entry key="lottyOrderService">
+					<ref bean="LottyOrderService" />
+				</entry>
+				<entry key="qihaoService">
+					<ref bean="QihaoService" />
+				</entry>
+			</map>
+		</property>
+	</bean>
+	<bean id="ggExecuteTrigger"
+		class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="ggExecuteJob" />
+		</property>
+		<property name="cronExpression">
+			<value>15 * * * * ?</value>
+		</property>
+	</bean>
+	<!-- 过关任务结束 -->
+	
+	<!-- 派奖任务 -->
+	<bean id="pjExecuteJob"
+		class="org.springframework.scheduling.quartz.JobDetailBean">
+		<property name="jobClass">
+			<value>com.jb.cron.PJExecuteJob</value>
+		</property>
+		<property name="jobDataAsMap">
+			<map>
+				<entry key="lottyJobService">
+					<ref bean="LottyJobService" />
+				</entry>
+				<entry key="lottyOrderService">
+					<ref bean="LottyOrderService" />
+				</entry>
+				<entry key="qihaoService">
+					<ref bean="QihaoService" />
+				</entry>
+			</map>
+		</property>
+	</bean>
+	<bean id="pjExecuteTrigger"
+		class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="pjExecuteJob" />
+		</property>
+		<property name="cronExpression">
+			<value>25 * * * * ?</value>
+		</property>
+	</bean>
+	<!-- 派奖任务结束 -->
+	
+	<!-- 出票任务 -->
+	<bean id="cpExecuteJob"
+		class="org.springframework.scheduling.quartz.JobDetailBean">
+		<property name="jobClass">
+			<value>com.jb.cron.CPExecuteJob</value>
+		</property>
+		<property name="jobDataAsMap">
+			<map>
+				<entry key="lottyOrderService">
+					<ref bean="LottyOrderService" />
+				</entry>
+			</map>
+		</property>
+	</bean>
+	<bean id="cpExecuteTrigger"
+		class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="cpExecuteJob" />
+		</property>
+		<property name="cronExpression">
+			<value>45 * * * * ?</value>
+		</property>
+	</bean>
+	<!-- 出票任务结束 -->
+</beans>

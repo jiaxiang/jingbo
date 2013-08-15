@@ -1,0 +1,12 @@
+source C:\code\jingbo365\trunk\dbms\sp\sp_lock.sql
+source C:\code\jingbo365\trunk\dbms\sp\sp_money_add.sql
+source C:\code\jingbo365\trunk\dbms\sp\sp_money_detail_log.sql
+source C:\code\jingbo365\trunk\dbms\sp\sp_money_update.sql
+source C:\code\jingbo365\trunk\dbms\sp\sp_settle_month.sql
+source C:\code\jingbo365\trunk\dbms\sp\sp_settle_month_1.sql
+source C:\code\jingbo365\trunk\dbms\sp\sp_settle_month_client.sql
+source C:\code\jingbo365\trunk\dbms\sp\sp_settle_realtime.sql
+source C:\code\jingbo365\trunk\dbms\sp\sp_settle_realtime_1.sql
+source C:\code\jingbo365\trunk\dbms\sp\sp_settle_realtime_2.sql
+source C:\code\jingbo365\trunk\dbms\sp\sp_settle_realtime_client.sql
+source C:\code\jingbo365\trunk\dbms\sp\sp_settle_tax.sql

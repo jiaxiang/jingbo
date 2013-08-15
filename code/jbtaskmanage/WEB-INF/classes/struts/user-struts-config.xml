@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<action-mappings>
+		<action path="/user/getPriTree" parameter="getPriTree"
+			type="com.fwprj.common.user.action.PriAction">
+			<forward name="MENU" path="/menu.jsp" />
+		</action>
+		<action path="/user/getRolePriTree" parameter="getRolePriTree"
+			type="com.fwprj.common.user.action.RoleAction">
+			<forward name="MENU" path="/menu.jsp" />
+		</action>
+		<action path="/user/listPri" parameter="listPri"
+			type="com.fwprj.common.user.action.PriAction">
+			<forward name="list" path="/user/listPri.jsp" />
+			<forward name="MENU" path="/menu.jsp" />
+		</action>
+
+		<action path="/user/preEditPri" parameter="preEditPri"
+			type="com.fwprj.common.user.action.PriAction">
+			<forward name="edit" path="/user/preEditPri.jsp" />
+		</action>
+
+		<action path="/user/createOrUpdatePri" parameter="createOrUpdatePri"
+			type="com.fwprj.common.user.action.PriAction">
+			<forward name="list" path="/user/listPri.jsp" />
+		</action>
+
+		<action path="/user/deletePri" parameter="deletePri"
+			type="com.fwprj.common.user.action.PriAction">
+			<forward name="list" path="/user/listPri.jsp" />
+		</action>
+
+		<action path="/user/listRole" parameter="listRole"
+			type="com.fwprj.common.user.action.RoleAction">
+			<forward name="list" path="/user/listRole.jsp" />
+		</action>
+
+		<action path="/user/preEditRole" parameter="preEditRole"
+			type="com.fwprj.common.user.action.RoleAction">
+			<forward name="edit" path="/user/preEditRole.jsp" />
+		</action>
+
+		<action path="/user/createOrUpdateRole" parameter="createOrUpdateRole"
+			type="com.fwprj.common.user.action.RoleAction">
+			<forward name="list" path="/user/listRole.jsp" />
+		</action>
+
+		<action path="/user/deleteRole" parameter="deleteRole"
+			type="com.fwprj.common.user.action.RoleAction">
+			<forward name="list" path="/user/listRole.jsp" />
+		</action>
+
+		<action path="/user/listUser" parameter="listUser"
+			type="com.fwprj.common.user.action.UserAction">
+			<forward name="list" path="/user/listUser.jsp" />
+		</action>
+
+		<action path="/user/preEditUser" parameter="preEditUser"
+			type="com.fwprj.common.user.action.UserAction">
+			<forward name="edit" path="/user/preEditUser.jsp" />
+		</action>
+
+		<action path="/user/editUser" parameter="editUser"
+			type="com.fwprj.common.user.action.UserAction">
+			<forward name="list" path="/user/listUser.jsp" />
+		</action>
+
+		<action path="/user/deleteUser" parameter="deleteUser"
+			type="com.fwprj.common.user.action.UserAction">
+			<forward name="list" path="/user/listUser.jsp" />
+		</action>
+
+		<action path="/pub/validate" parameter="method" scope="request" type="com.fw.common.action.ValidateNumberAction" validate="false">
+		</action>
+
+		<action path="/login" type="com.fwprj.common.user.action.UserAction" parameter="login">
+			<forward name="success" path="/main.jsp" />
+			<forward name="failed" path="/index.jsp" />
+		</action>
+
+		<action path="/showMenu" parameter="showMenu"
+			type="com.fwprj.common.user.action.UserAction">
+			<forward name="MENU" path="/menu.jsp" />
+		</action>
+
+		<action path="/logout" type="com.fwprj.common.user.action.UserAction" parameter="logout">
+		</action>
+
+		<action path="/user/preCreateUsers" parameter="preCreateUsers"
+			type="com.fwprj.common.user.action.UserAction">
+			<forward name="edit" path="/user/createUser.jsp" />
+		</action>
+
+		<action path="/user/createUsers" parameter="createUsers"
+			type="com.fwprj.common.user.action.UserAction">
+			<forward name="list" path="/user/listUser.jsp" />
+			<forward name="edit" path="/user/createUser.jsp" />
+		</action>
+
+		<action path="/user/updateUser" parameter="updateUser"
+			type="com.fwprj.common.user.action.UserAction">
+			<forward name="edit" path="/user/updateUser.jsp" />
+		</action>
+
+	</action-mappings>
+</struts-config>
+

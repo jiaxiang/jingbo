@@ -1,0 +1,110 @@
+body {
+    font: normal 12px verdana,arial,tahoma;
+}
+html, body {
+    margin:0;
+    padding:0;
+    border:0 none;
+    overflow:hidden;
+    height:100%;
+    width:100%;
+}
+#north-div{
+   border:0 none;
+   background:#1E4176 url(hd-bg.gif) repeat-x 0 0;
+   padding-top:3px;
+   padding-left:3px;
+}
+.frame-title {
+    font:normal 16px tahoma, arial, sans-serif;
+    color:white;
+    margin:5px;
+}
+.frame-logout {
+	float:right;
+    font:normal 16px tahoma, arial, sans-serif;
+    color:white;
+    margin:5px;
+}
+#class .loading-indicator{
+	font-size:12px;
+	height:18px;
+}
+.loading-indicator {
+    font-size:11px;
+    background-image:url('../extjs/resources/images/default/grid/loading.gif');
+    background-repeat: no-repeat;
+    background-position:top left;
+    padding-left:20px;
+	height:18px;
+	text-align:left;
+}
+#tab1 .loading-indicator {
+    font:bold 13px  Tahoma, Verdana, Arial, Helvetica, sans-serif;
+    position:absolute;
+    top:35%;
+    left:43%;
+    color:#444;
+    background-image:url(../extjs/resources/images/default/shared/large-loading.gif);
+    background-repeat: no-repeat;
+    background-position:left 5px;
+    padding:10px 10px 10px 38px;
+	text-align:left;
+}
+#loading .loading-indicator{
+	background:white;
+	color:#555;
+	font:bold 13px tahoma,arial,helvetica;
+	padding:10px;
+	margin:0;
+    text-align:center;
+    height:auto;
+}
+#loading-mask{
+	position:absolute;
+	left:0;
+	top:0;
+    width:100%;
+    height:100%;
+    z-index:20000;
+    background-color:white;
+}
+#loading{
+	position:absolute;
+	left:45%;
+	top:40%;
+	padding:2px;
+	z-index:20001;
+    height:auto;
+}
+#loading img {
+    margin-bottom:5px;
+}
+#menu a span {
+    font-family:verdana,arial,tahoma,sans-serif;
+    font-size:11px;
+}
+#menu .cls a:hover span {
+    text-decoration:underline;
+}
+#menu .x-panel-body {
+    background-color:white;
+    position:relative;
+    padding:3px;
+}
+#menu .cls{
+    border:1px solid #fff;
+}
+
+#menu  .x-tree-selected {
+    border:1px dotted #a3bae9;
+    background:#DFE8F6;
+}
+#menu  .x-tree-node .x-tree-selected a span{
+	background:transparent;
+	color:#1E4176;
+    font-weight:bold;
+}
+.icon-cls {
+    background-image: url(/images/class.gif) !important;
+}

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+    
+<sqlMap namespace="tbsaleprouser">
+    <typeAlias alias="saleProuser" type="com.jb.entity.SaleProuser" />
+    <typeAlias alias="plansBasics" type="com.jb.entity.PlansBasics" />
+    
+    <select id="getSaleProuserList" 
+            resultClass="saleProuser"
+            parameterClass="saleProuser">
+        <![CDATA[
+		SELECT 
+            s_prouser.id AS id,
+            s_prouser.pbid AS pbid,
+            s_prouser.pid AS pid,
+            s_prouser.uid AS uid,
+            s_prouser.uname AS uname,
+            s_prouser.nums AS nums,
+            s_prouser.rgmoney AS rgMoney,
+            s_prouser.restat AS restat,
+            s_prouser.bonus AS bonus,
+            s_prouser.pjstat AS pjstat,
+            s_prouser.qsstat AS qsstat,
+            s_prouser.buyType AS buyType    
+		FROM sale_prousers s_prouser 
+        WHERE 1 = 1 
+        ]]>
+          <dynamic>
+            <isNotEmpty property="pid">
+                <![CDATA[
+                  AND s_prouser.pid=#pid# 
+                ]]>
+            </isNotEmpty>
+          </dynamic>   
+          <dynamic>
+            <isNotEmpty property="qsstat">
+                <![CDATA[
+                  AND s_prouser.qsstat=#qsstat# 
+                ]]>
+            </isNotEmpty>
+          </dynamic>   
+          <dynamic>
+            <isNotEmpty property="pjstat">
+                <![CDATA[
+                  AND s_prouser.pjstat=#pjstat# 
+                ]]>
+            </isNotEmpty>
+          </dynamic> 
+          <dynamic>
+            <isNotEmpty property="restat">
+                <![CDATA[
+                  AND s_prouser.restat=#restat# 
+                ]]>
+            </isNotEmpty>
+          </dynamic> 
+        <![CDATA[
+        ORDER BY s_prouser.id ASC
+        ]]>
+    </select>
+    <!-- ================更改认购清算标识================ -->
+	<update id="updateProuserByqsstat" parameterClass="saleProuser">
+		UPDATE sale_prousers SET qsstat=#qsstat# WHERE pid = #pid#
+	</update>
+	
+	<!-- ================更改认购未中奖派奖标识================ -->
+	<update id="updateProuserBypjstat" parameterClass="saleProuser">
+		UPDATE sale_prousers SET pjstat=#pjstat# WHERE pid = #pid#
+	</update>
+	
+	<!-- ================更改认购中奖派奖标识================ -->
+	<update id="updateProuserBypjbonus" parameterClass="saleProuser">
+		UPDATE sale_prousers SET bonus=#bonus#,pjstat=#pjstat# WHERE id = #id#
+	</update>
+	
+	<!-- ================更改认购派奖标识================ -->
+	<update id="updatePlansBasicsBybonus" parameterClass="plansBasics">
+		UPDATE plans_basics SET bonus=#bonus# WHERE id = #id#
+	</update>
+	
+	<!-- ================更改基础表状态================ -->
+	<update id="updatePlansBasicsBystatus" parameterClass="saleProuser">
+		update plans_basics pb,sale_prousers sp 
+			set pb.status=#status#,pb.bonus=#bonus# where sp.pbid=pb.id and sp.pid=#pid#
+	</update>
+	
+	<!-- ================更改基础表状态================ -->
+	<update id="updatePlansBasicsBystatus5" parameterClass="saleProuser">
+		update plans_basics pb  
+			set pb.status=#status#,pb.bonus=#bonus# where pb.id=#pbid#
+	</update>
+</sqlMap>

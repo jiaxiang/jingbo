@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<bean id="PriService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.fwprj.common.user.service.PriServiceImpl"/>
+		</property>
+	</bean>
+
+	<bean id="RoleService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.fwprj.common.user.service.RoleServiceImpl"/>
+		</property>
+	</bean>
+
+	 <bean id="UserService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.fwprj.common.user.service.UserServiceImpl"/>
+		</property>
+	</bean>
+
+</beans>

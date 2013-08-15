@@ -1,0 +1,269 @@
+	/**
+	 * 用户激活页面
+	 */
+	public function active_user()
+	{
+		$user_id = $this->input->get('user_id');
+		$vc = $this->input->get('vc');
+		if(empty($user_id) || empty($vc) || 
+			md5(md5($user_id + 'ABC123') + 'ABC123')!= $vc)
+		{
+			url::redirect('/');
+		}
+		$user = Myuser::instance($user_id)->get();
+        
+		//如果该用户已经激活直接进入登录页面
+		if($user['register_mail_active']){
+			url::redirect('/login');
+		}elseif($user['id']>0){
+			//激活用户
+			$content = new View('active_account');
+			if(Myuser::instance($user_id)->edit(array('register_mail_active'=>1))){
+				//状态修改成功处理 
+				$is_actived = true;
+				user::login_process($user);
+			}else{
+				//状态修改失败处理 
+				$is_actived = false;
+			}
+		}else{
+            remind::set(kohana::lang('o_site.o_site_register_error'), 'error', route::action('register'));
+        }
+        
+        $this->auto_render = FALSE;
+        include(APPTPL.'active_success.html');
+	}
+
+
+	/**
+	 * 用户地址列表
+	 */
+	public function addresses()
+	{
+		if(!$user = user::logged_in())
+		{
+			url::redirect(route::action('login')."?redirect=".url::current(TRUE));
+		}
+		$user_id = $user['id'];
+
+		$addresses = Myuser::instance($user_id)->addresses();
+
+		$content = new  View('user_address');
+		$content->addresses = $addresses;
+		$this->template->content = $content;
+	}
+	
+	/**
+	 * 用户注册项列表
+	 */
+	public function user_attribute()
+	{
+        $return_struct = array (
+            'status' => 0, 
+            'code' => 501, 
+            'msg' => 'Not Implemented', 
+            'content' => array () 
+        );
+        try{
+            //
+            if(!$user = user::logged_in())
+	        {
+	            url::redirect(route::action('login')."?redirect=".url::current(TRUE));
+	        }
+	        //调用底层服务
+            $user_attribute_service = User_attributeService::get_instance();
+            $user_attribute_value_service = User_attribute_valueService::get_instance();
+            
+            //数据提交
+            if($_POST)
+            {
+                tool::filter_strip_tags($_POST);
+                //收集数据
+                $request_data = $this->input->post();
+                //查找原始数据
+                $user_attrs = array();
+                $query_struct = array(
+	                'where'=>array(
+//	                    'attribute_show'=>1,
+	                    ),
+                );
+                $user_attributes = $user_attribute_service->index($query_struct);
+                $user_attribute_service->add_default_attributes($user_attributes);
+                
+                //将新数据与$user_attributes合并
+                foreach ($user_attributes as $key=>$user_attr)
+                {
+                	if(!$user_attr['attribute_show'])
+                	{
+                	   unset($user_attributes[$key]);
+                	   continue;
+                	}
+                    $name = str_replace(' ','_',$user_attr['attribute_name']).'_'.$user_attr['id'];
+                    if(isset($request_data[$name]))
+                    {
+                        if(is_array($request_data[$name]))
+                        {
+                             $request_data[$name] = serialize($request_data[$name]);
+                        }
+                    	$user_attributes[$key]['user_attribute_value'] = trim($request_data[$name]);
+                    }else{
+                        $user_attributes[$key]['user_attribute_value'] = '';
+                    }
+                }
+                //验证数据
+                foreach($user_attributes as $key=>$user_attr)
+                {
+                   //必填项验证
+                   if($user_attr['attribute_required'] && empty($user_attr['user_attribute_value']))
+                   {
+                       remind::set($user_attr['attribute_name'].kohana::lang('o_user.o_user_user_attribute_name_not_null'), 'notice','/user/user_attribute');
+                   }
+                   //输入长度验证
+                   if(strlen($user_attr['user_attribute_value']) >255)
+                   {
+                       remind::set($user_attr['attribute_name'].kohana::lang('o_user.o_user_user_attribute_too_length'), 'notice','/user/user_attribute');
+                   }
+                   //类型的验证
+                   $types=explode('.', $user_attr['attribute_type']);
+                   if($types[0] == 'input')
+                   {
+                       switch($types[1])
+                       {
+                            case 'numeric':
+                                if(!empty($user_attr['user_attribute_value']) && !is_numeric($user_attr['user_attribute_value']))
+                                {
+                                    remind::set($user_attr['attribute_name'].kohana::lang('o_user.o_user_user_attribute_numeric'), 'notice', '/user/user_attribute');
+                                }
+                                break;
+                            case 'string':
+                                if(!preg_match('/^[a-zA-Z]+$/',$user_attr['user_attribute_value'],$matches))
+                                {
+                                    remind::set($user_attr['attribute_name'].kohana::lang('o_user.o_user_user_attribute_string'), 'notice', '/user/user_attribute');
+                                }
+                                break;
+                            case 'numeric_string':
+                                if(!preg_match('/^[a-zA-Z0-9]+$/',$user_attr['user_attribute_value'],$matches))
+                                {
+                                    remind::set($user_attr['attribute_name'].kohana::lang('o_user.o_user_user_attribute_numeric_string'), 'notice', '/user/user_attribute');
+                                }
+                                break;
+                            default:
+                                break;
+                       }
+                   }
+                }
+                //数据存储
+	            foreach($user_attributes as $key=>$user_attr)
+	            {
+	               $user_attr_cur = $user_attr['user_attribute_value'];
+                   $query_struct = array(
+                        'where'=>array(
+	                            'user_attribute_id'=> $user_attr['id'],
+	                            'user_id'          => $user['id'],
+                            )
+                        );
+                   $user_attr_value = $user_attribute_value_service->index($query_struct);
+                   if(!empty($user_attr_value))
+                   {
+                        $user_attribute_value_service->set($user_attr_value[0]['id'], array('user_attribute_value'=>$user_attr_cur));
+                     
+                   }else{
+                       if(!empty($user_attr_cur))
+                       {
+	                       $insert_data = array(
+                               'user_id'=>$user['id'],
+                               'user_attribute_id'=>$user_attr['id'],
+                               'user_attribute_value'=>$user_attr_cur,
+                           );
+                           $user_attribute_value_service->add($insert_data);
+                       }
+                   }
+	            }
+            }
+            //取得当前站点的注册项
+            $query_struct = array(
+                'where'=>array(
+//	                'attribute_show'=>1,
+                ),
+                'orderby'=>array(
+                    'attribute_order'=>'DESC',
+                    'id'=>'ASC',
+                ),
+            );
+            $user_attributes = $user_attribute_service->index($query_struct);
+
+            $user_attribute_service->add_default_attributes($user_attributes);
+            //取得当前用户的注册项信息
+            $query_struct = array(
+                'where'=>array(
+	                'user_id'=>$user['id'],
+                ),
+            );
+            $user_attribute_values = $user_attribute_value_service->index($query_struct);
+            
+            //将站点注册项与用户注册项进行合并,将用户的信息加到注册项中
+            $tmp_arr=array();
+            foreach($user_attribute_values as $user_attribute_value)
+            {
+                $tmp_arr[$user_attribute_value['user_attribute_id']] = $user_attribute_value;
+            }
+            foreach($user_attributes as $key=>$user_attribute)
+            {
+            	if(!$user_attribute['attribute_show'])
+            	{
+            	   unset($user_attributes[$key]);
+            	   continue;
+            	}
+            	//对多选处理
+                if($user_attribute['attribute_type'] == 'select.multiple')
+                {
+                   isset($tmp_arr[$user_attribute['id']]) && 
+                       $tmp_arr[$user_attribute['id']]['user_attribute_value'] = 
+                       unserialize($tmp_arr[$user_attribute['id']]['user_attribute_value']);
+                }
+                $user_attributes[$key]['user_attribute_value'] = isset($tmp_arr[$user_attribute['id']])?
+                                            $tmp_arr[$user_attribute['id']]['user_attribute_value']:'';
+            }
+            
+//           print_r($user_attributes);exit;
+            $this->template->content = new view("user_attribute");
+            $this->template->content->user_attributes = $user_attributes;
+        }catch(MyRuntimeException $ex){
+            $return_struct['status'] = 0;
+            $return_struct['code'] = $ex->getCode();
+            $return_struct['msg'] = $ex->getMessage();
+            //TODO 异常处理
+            //throw $ex;
+            if($this->is_ajax_request()){
+                $this->template->content = $return_struct;
+            }else{
+                $this->template->return_struct = $return_struct;
+                $content = new View('info');
+                $this->template->content = $content;
+                //* 请求结构数据绑定 */
+                $this->template->content->request_data = $request_data;
+                //* 返回结构体绑定 */
+                $this->template->content->return_struct = $return_struct;
+            }
+        }
+	
+	}
+
+
+function showErr(input, msg){
+	$(input+'_err').className="up_tis";
+	$(input+'_err').style.display="block";
+	$(input+'_err').innerHTML = msg;
+}
+function showOK(input,msg){
+	$(input+'_err').className="up_tisok";
+	$(input+'_err').style.display="block";
+	$(input+'_err').innerHTML = msg;
+}
+
+<script type="text/javascript">try{parent.acceptLoginMsg('验证码错误');}catch(e) {document.domain = location.host.split('.').slice(-2).join('.');parent.acceptLoginMsg(' 验证码错误');};</script>
+
+
+
+
+

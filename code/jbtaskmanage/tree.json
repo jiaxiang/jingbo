@@ -1,0 +1,6 @@
+[
+    {text:"菜单一",iconCls:"icon-cls",allowDrag:false,url:"ajax1.htm",leaf:true},
+    {text:"菜单二",iconCls:"icon-cls",allowDrag:false,leaf:true},
+    {text:"菜单三",iconCls:"icon-cls",allowDrag:false,leaf:true},
+    {text:"菜单四",iconCls:"icon-cls",allowDrag:false,leaf:true}
+]

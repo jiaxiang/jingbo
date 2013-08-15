@@ -1,0 +1,52 @@
+.STYLE8 {
+    color: #FFFF00;
+    font-size: 16px;
+    font-weight: bold;
+}
+.wenzi {
+    font-size: 16px;
+    font-family: "微软雅黑";
+}
+
+#top_list01 a:link, #top_list01 a:visited {
+    color: #cccccc;
+    text-decoration: none;
+}
+body {
+    background-color: #000000;
+    background-image: url("../../../images/headers/xlhouse/7878.jpg");
+    background-repeat: no-repeat;
+}
+.STYLE8 {
+	color: #FFFF00;
+	font-weight: bold;
+	font-size: 16px;
+}
+.STYLE10 {font-size: 12pt}
+.STYLE20 {
+	font-size: 12pt;
+	color: #FF0000;
+	font-style: normal;
+	line-height: normal;
+}
+.STYLE21 {
+	font-family: "微软雅黑"
+}
+.STYLE24 {color: #FFFF00}
+.STYLE25 {
+	color: #FFFFFF;
+	font-size: 14px;
+}
+.STYLE28 {font-size: 14px}
+.STYLE29 {color: #FFFF00; font-size: 14px; }
+.STYLE31 {
+	font-size: 12pt;
+	color: #FFFFFF;
+	font-family: "方正书宋简体";
+}
+.STYLE32 {color: #FFFFFF}
+.STYLE3 {
+	color: #999999;
+	font-family: "微软雅黑";
+	font-size: 9pt;
+}

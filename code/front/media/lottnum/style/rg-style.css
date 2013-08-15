@@ -1,0 +1,330 @@
+@charset "utf-8";
+.box_m {
+	border: 1px solid #fed4a0;
+    min-height: 20px;
+	border-bottom:1px solid #fed4a0;
+	
+}
+.det_t_bg {
+    background: url("../images/fa_bg.png") repeat-x scroll 0 0 transparent;
+    border-bottom: 1px solid #fed6a4;
+    height: 74px;
+    position: relative;
+}
+.det_t_bg div.pls-logo {
+	background-position: 0 -675px;
+}
+.det_t_bg div.plw-logo {
+	background-position: 0 -600px;
+}
+.det_t_bg div.qxc-logo {
+	background-position: 0 -975px;
+}
+.det_t_bg .s-logo {
+    background: url("../images/s-logo.png") no-repeat scroll left -1px transparent;
+    height: 72px;
+    left: 20px;
+    position: absolute;
+    text-indent: -2000em;
+    top: 0;
+    width: 66px;
+}
+.det_t_bg .dlt-logo {
+    background-position: -4px -227px;
+}
+.det_t_bg .det_h {
+    padding: 10px 0 10px 118px;
+}
+.det_t_bg .det_h h2 {
+    font-size: 16px;
+    line-height: 30px;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: Verdana;
+}
+.det_t_bg .det_h p {
+    color: #999999;
+}
+.m_r25 {
+    margin-right: 25px;
+}
+.det_g_t {
+    background: none repeat scroll 0 0 #fffffa;
+    border-bottom: 1px solid #fed4a0;
+    font-weight: bold;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 10px;
+}
+table {
+    border-collapse: collapse;
+}
+.buy_table td {
+    border-bottom: 1px solid #E0E2E1;
+}
+
+.td_title2 {
+    width: 120px;
+}
+
+.buy_table td {
+    border-bottom: 1px solid #E0E2E1;
+}
+
+.con_content {
+    background: none repeat scroll 0 0 #FFFFFF;
+    padding: 10px 20px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.detail_d {
+    overflow: hidden;
+   
+}
+
+.detail_d {
+    clear: both;
+    width: 630px;
+}
+.con_content p {
+    line-height: 24px;
+}
+.m_r50 {
+    margin-right: 50px;
+}
+
+.record {
+    text-align: center;
+}
+.gray, .gray a, a.gray {
+    color: #999999;
+}
+.buy_table td {
+    border-bottom: 1px solid #fed6a4;
+}
+.clearfix:after {
+    clear: both;
+    content: "";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+.detail_d {
+    overflow: hidden;
+    
+}
+
+.detail_d {
+    clear: both;
+    width: 630px;
+}
+.yh_tab {
+    background: url("../images/yh_bg.png") repeat-x scroll 0 0 transparent;
+    height: 31px;
+    line-height: 30px;
+    margin-top: 10px;
+    padding-left: 10px;
+}
+.yh_tab ul {
+    border-left: 1px solid #fed6a4;
+}
+.yh_tab ul li {
+    background: url("../images/yh_li_bg.png") repeat-x scroll 0 0 transparent;
+    border-right: 1px solid #fed6a4;
+    border-top: 1px solid #fed6a4;
+    color: #0F3F94;
+    cursor: pointer;
+    float: left;
+    font-size: 12px;
+    height: 30px;
+    text-align: center;
+    width: 126px;
+}
+.guide {
+    margin: 10px auto;
+    width: 990px;
+}
+.det_t_bg a.m_link {
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 28px;
+    position: absolute;
+    right: 10px;
+    text-align: right;
+    top: 2px;
+    width: 120px;
+}
+.td_title, .td_title2 {
+    background: none repeat scroll 0 0 #F5F5F5;
+    color: #999999;
+    padding: 15px 0;
+    text-align: center;
+    vertical-align: middle;
+    width: 90px;
+}
+.con_content {
+    background: none repeat scroll 0 0 #FFFFFF;
+    padding: 10px 20px;
+    text-align: left;
+    vertical-align: middle;
+}
+.tdbback {
+    background: none repeat scroll 0 0 #fffbe1;
+    margin-top: 5px;
+    padding: 3px;
+    width: 630px;
+}
+.tdbback .tablelay {
+    border: 1px solid #fed6a4;
+    text-align: center;
+}
+table.tablelay th {
+    background: none repeat scroll 0 0 #fef7ca;
+    border-bottom: 1px solid #fed6a4;
+    border-right: 1px solid #fed6a4;
+    color: #333333;
+    font-weight: normal;
+    height: 26px;
+    line-height: 26px;
+}
+
+td table.tablelay td, table.tablelay td {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-bottom: 1px solid #fed6a4;
+    border-right: 1px solid #fed6a4;
+    height: 26px;
+    line-height: 26px;
+    padding: 0;
+}
+.red, .red a, a.red {
+    color: #FF3300;
+}
+.con_content p {
+    line-height: 24px;
+}
+.p_tb8 {
+    padding-bottom: 8px;
+    padding-top: 8px;
+}
+.td_title2 {
+    width: 120px;
+}
+.yh_tab {
+    background: url("../images/yh_bg.png") repeat-x scroll 0 0 transparent;
+    height: 31px;
+    line-height: 30px;
+    margin-top: 10px;
+    padding-left: 10px;
+}
+
+.buy_btn {
+    float: right;
+    padding: 10px 160px 10px 0;
+    text-align: center;
+    width: 130px;
+}
+.buy_btn {
+    float: right;
+    padding-top: 15px;
+}
+.buy_btn .btn_buy_m {
+    display: block;
+    margin: 0 auto;
+}
+
+.buy_btn .btn_buy_m, .buy_btn .btn_buy_hm {
+    display: block;
+    margin: 0 auto;
+}
+
+
+.btn_buy_m, a.btn_buy_m {
+    background-position: 0 -176px;
+    font-size: 0;
+    height: 45px;
+    line-height: 45px;
+    overflow: hidden;
+    text-indent: -9999px;
+    width: 130px;
+}
+.red, .red a, a.red {
+    color: #FF3300;
+}
+
+.eng {
+    font-family: Tahoma,Geneva,sans-serif;
+}
+.mul, .amount {
+    height: 18px;
+    line-height: 18px;
+    margin-right: 8px;
+    padding-left: 2px;
+    width: 42px;
+}
+.hide_sp {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    width: 20px;
+}
+
+.qr_btn{ margin-left:15px; background:url(../images/btn_bg.png) no-repeat; width:82px; height:25px; color:#FFF; font-weight:normal; display:block; float:left; text-align:center;}
+.qr_btn:hover{ text-decoration: none;}
+
+.yh_tab ul li.an_cur {
+    background: none repeat scroll 0 0 #FFFFFF;
+    color: #333333;
+    font-size: 14px;
+    font-weight: bold;
+}
+.hm_tb_t {
+    text-align: center;
+}
+
+
+.hm_tb_t th {
+    background: url("../images/sfc/hm_th_bg.png") repeat-x scroll 0 0 transparent;
+    color: #999999;
+    font-weight: normal;
+    height: 33px;
+    line-height: 33px;
+}
+.hm_tb_t th.hm_name, .hm_tb_t td.hm_name {
+    padding-left: 40px;
+    text-align: left;
+    width: 135px;
+}
+.hm_tb_t tr.my td {
+    color: #FF0000;
+}
+
+.buy_table tr.last_tr td {
+    border-bottom: 0 none;
+}
+
+.hm_tb_t th.hm_name, .hm_tb_t td.hm_name {
+    padding-left: 40px;
+    text-align: left;
+    width: 135px;
+}
+
+.hm_tb_t td {
+    border: 0 none;
+    height: 30px;
+}
+
+.buy_table td {
+    border-bottom: 1px solid #E0E2E1;
+}
+
+
+
+
+
+
+
+
+
