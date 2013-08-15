@@ -1,0 +1,81 @@
+部署说明：
+
++ 默认项目部署路径：
+/shopkt
+
+1基本项目文件结构：
+/+
+ system kohana 的系统内核目录
+ 
+ modules kohana 的模块共享目录
+ 
+ admin 平台后台管理应用
+  +application 后台应用代码
+   +config 后台应用配置
+  -index.php 后台web入口文件(后台web配置文档路径：/shopkt/admin)
+  
+ bin 公用shell 脚本维护工具等
+ 
+ etc 项目相关配置
+  +cron crontab 定时程序配置相关设定
+  +web 实例服务默认配置(ini)
+  
+ front 平台前台（多站点）应用
+  +application 前台应用代码
+   +config 前台应用配置
+  -index.php 前台web入口文件(前台web配置文档路径：/shopkt/front)
+  
+ share 公共文件路径
+  +doc 项目相关文档
+   -INSTALL.zh_CN 部署说明文档（简体中文）
+  +setup 部署相关文件
+   +mockup 部署配置模拟配置参考结构(包含对应路径下的nginx.conf等相关配置文件)
+   -shopkt.sql 项目基本数据库结构sql
+   
+ var 项目数据文件路径
+  +cache 项目磁盘缓存
+   +web WEB应用相关
+    +app 默认应用
+     +config 配置缓存(web服务可读写&继承)
+     +min 页面压缩缓存(web服务可读写&继承)
+     +sql 查询缓存(web服务可读写&继承)
+     +thumb 缩略图缓存(web服务可读写&继承)
+     +web 页面缓存(web服务可读写&继承)
+     
+  +data 项目磁盘数据
+   +fs NFS文件存储(部分路径远程挂载，web服务可读写&继承)
+    +attachment 附件(部分路径远程挂载，web服务可读写&继承)
+    +default 默认(部分路径远程挂载，web服务可读写&继承)
+    +productpic 产品图片(部分路径远程挂载，web服务可读写&继承)
+    +store 存储 (部分路径远程挂载，web服务可读写&继承)
+    
+  +etc 项目相关应用数据配置
+   +web WEB应用相关
+     +db 数据库配置
+     +fs NFS文件系统配置
+     +mem memcache协议配置
+     +phprpc phprpc协议配置
+     +tt tt协议配置
+     
+  +log 项目相关日志
+   +web Web应用日志
+   +tmp 项目相关临时文件(部分路径远程挂载，web服务可读写&继承)
+   +web Web应用相关
+    +app 默认应用
+     +thumb 缩略图部分
+
+按照默认部署路径配置好相关文件目录权限，web服务入口路径以及对应的日志路径后（具体可参考share/setup/mockup/usr/local/nginx/conf/nginx.conf中的对应配置）
+根据项目具体运行环境情况调整bin/setupAccess.sh 脚本文件中的appwebgrp变量和prefix路径即可协助调整项目中路径设置权限问题。
+导入share/setup/shopkt.sql数据库文件
+
+修改admin/application/config/database.php以及front/application/config/database.php 中的对应配置
+
+修改admin/application/config/phprpc.php以及front/application/config/phprpc.php 中的对应配置
+其中remote段下的
+'host'=>'http://store.ketai-cluster.com/phprpc/attachment',为远程phprpc接口的服务地址
+'apiKey'=>'a23406d543be07c937182ca25f6cff5f',为远程phprpc接口和本地交互的apikey，作为验证共钥。
+
+appstore周边项目中则修改对应的本地(local)的段对应的apikey即可。
+
+
+其他未尽事宜请参考之前的版本配置部署说明或咨询相关系统管理人员解决。

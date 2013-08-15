@@ -1,0 +1,253 @@
+/* CSS Document by spw */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote{margin:0;padding:0;}
+ul,ol {list-style:none;}
+body{font-size:10pt;background:url(../../images/led/webbg.jpg) top repeat-x; font-family: "Microsoft Yahei";}
+a:link {color: #666; text-decoration: none}
+a:visited {color: #666; text-decoration: none}
+a:hover {color: #ff0000; text-decoration: none}
+a:active{}
+a img { border:0;}
+/* end reset */
+
+.fl{ float:left}
+.fr{ float:right!important}
+.fn{ float:none}
+.clear{ clear:both}
+.clearleft{clear:left}
+.clearright{clear:right}
+.over{overflow:hidden}
+.ie6haslayout{zoom:1}
+.pos_abs{ position:absolute}
+.pos_rel{ position:relative}
+.pos_sta{ position:static}
+.box_none{ display:none}
+.box_block{ display:block}
+.box_inline{ display:inline}
+.pt5{ padding-top:5px}
+.pt10{ padding-top:10px}
+.pt15{ padding-top:15px}
+.pt20{ padding-top:20px}
+.pl5{ padding-left:5px}
+.pl10{ padding-left:10px}
+.pl15{ padding-left:15px}
+.pl20{ padding-left:20px}
+.pr5{ padding-right:5px}
+.pr10{ padding-right:10px}
+.pr15{ padding-right:15px}
+.pr20{ padding-right:20px}
+.pb7{ padding-bottom:7px}
+.pb5{ padding-bottom:5px}
+.pb10{ padding-bottom:10px}
+.pb15{ padding-bottom:15px}
+.pb20{ padding-bottom:20px}
+.mt3{ margin-top:3px}
+.mt5{ margin-top:5px}
+.mt6{ margin-top:6px}
+.mt-5{ margin-top:-5px}
+.mt10{ margin-top:10px}
+.mt12{ margin-top:12px}
+.mt15{ margin-top:15px}
+.mt20{ margin-top:20px}
+.ml5{ margin-left:5px}
+.ml10{ margin-left:10px}
+.ml8{ margin-left:8px}
+.ml15{ margin-left:15px}
+.ml20{ margin-left:20px}
+.ml30{ margin-left:30px}
+.mr5{ margin-right:5px}
+.mr6{ margin-right:6px}
+.mr10{ margin-right:10px}
+.mr15{ margin-right:15px}
+.mr20{ margin-right:20px}
+.mb5{ margin-bottom:5px}
+.mb10{ margin-bottom:10px}
+.mb15{ margin-bottom:15px}
+.mb20{ margin-bottom:20px}
+.gminline{}
+.gminline div{ display:inline}
+/* end gm */
+.font_12px{ font-size:12px}
+.font_13px{ font-size:13px}
+.font_14px{ font-size:14px}
+.font_line_12{ line-height:1.2em}
+.font_line_15{ line-height:1.5em}
+.font_line_18{ line-height:1.8em}
+.font_line_20{ line-height:2em}
+.txt_algin{ text-align:center}
+/* end font */
+p{}
+p,.content,p a,.content a{line-height:26px; text-decoration:none; color:#000; font-size:12px; margin:0px auto;}
+p a:link,.content a:link{ color:#0000ff; text-decoration:underline}
+p a:hover,.content a:hover{}
+p strong,p a strong,.content strong,.content a strong{}
+p{text-indent:0em; font-size:14px; line-height:26px; padding-top:5px; padding-bottom:5px;}
+p.f12{ font-size:12px;}
+p.no2em{ text-indent:0}
+
+h1{ font-size:24px; border-bottom:1px solid #DDE2E4; color:#3463B1; text-align:center; line-height:1.5em; padding-top:5px;}
+h2{ font-size:14px; color: #CC0000; padding-top:1px; font-weight:100; line-height:26px; font-weight:bold}
+h2 span{}
+
+
+
+#wrapper{width:990px;margin:0px auto;}
+
+#innerWrapper{width:990px;overflow:hidden;margin:5px auto}
+/*椤堕儴寮�*/
+#body_head{}
+#body_head .logo{ float:left; width:285px;}
+#body_head .menu{ float:right; width:680px}
+#body_head .menu ul{}
+#body_head .menu li{ width:110px;text-align:center; float:left}
+#body_head .menu li:hover,#body_head .menu li.menu_hover{ border-top:3px solid #00a159}
+#body_head .menu li a:link{ color:#000000; text-decoration:none; font-size:12pt}
+#body_head .menu li a:hover{ color:#ff9900; text-decoration:none; font-size:12pt}
+#body_head .menu li p{ height:18px; line-height:18px}
+#body_head .menu li p.f_m_t{ font-family:Arial; font-size:8pt; color:#CCCCCC}
+
+
+#body_head .banner{ background-color:#FFFFFF; text-align:center;}
+/*鏈�柊鍔ㄦ�寮�*/
+#body_head .zuixindt{ height:26px; }
+#body_head .zuixindt .zxdt_h3{width:115px; float:left;}
+#body_head .zuixindt .zxdt{float:left; width:630px;background:none}
+#body_head .zuixindt .zxdt ul{}
+#body_head .zuixindt .zxdt ul li{ height:26px; line-height:26px; text-align:left}
+#body_head .zuixindt .zxdt ul li font{color:#999999; padding-left:20px; font-size:12px; font-family:Arial, Helvetica, sans-serif}
+#body_head .zuixindt .zxdt ul li a{ color:#666666}
+#body_head .zuixindt .zxdt ul li a:hover{ color:#FF0000}
+
+#body_head .zuixindt .zxdt_title{color:#09914d;width:130px}
+#body_head .zuixindt .zxdt_title a{ color:#09914d}
+#body_head .zuixindt .zxdt_title a:hover{ color:#ff0000}
+/*鍏充簬绔炴悘寮�*/
+#innerWrapper .guanyuJB{ width:500px; float:left; overflow:hidden}
+#innerWrapper .guanyuJB p{ line-height:22px; font-size:12px; color:#666666}
+#innerWrapper .guanyuJB p a{ color:#068043; text-decoration:none}
+#innerWrapper .guanyuJB p a:hover{ color:#ff0000}
+/*鏈�柊浜у搧寮�*/
+#innerWrapper .zuixinCP{ width:490px; float:right; padding-top:5px;}
+#innerWrapper .zuixinCP h3{ float:left;width:490px;}
+#innerWrapper .zuixinCP h3 span{ float:right; padding-top:14px;}
+
+#innerWrapper .zuixinCP .cp_list{ float:left;}
+#innerWrapper .zuixinCP .cp_list ul{}
+#innerWrapper .zuixinCP .cp_list ul li{ float:left; width:115px; margin-left:40px; display:inline}
+#innerWrapper .zuixinCP .cp_list ul li p{ line-height:28px; height:28px;}
+#innerWrapper .zuixinCP .cp_list ul li p a{ color:#666666; text-decoration:none}
+#innerWrapper .zuixinCP .cp_list ul li p a:hover{ color:#FF0000}
+#innerWrapper .zuixinCP .cp_but_l{ width:24px; float:left; padding-top:40px; padding-left:10px;}
+#innerWrapper .zuixinCP .cp_but_r{ width:24px; float:right; padding-top:40px; }
+
+
+/*鍐呴〉鏍峰紡寮�*/
+#wrapper_left{ width:198px; margin-top:10px; float:left; display:inline}
+#wrapper_left h3{ background:url(../../images/led/l_menu_btbg.jpg); height:40px; line-height:40px; font-size:12pt;color:#FFFFFF;padding-left:35px; font-weight:normal}
+
+#wrapper_left .l_menu{ border-bottom:2px solid #0aa25f;border-left:2px solid #0aa25f;border-right:2px solid #0aa25f;}
+#wrapper_left .l_menu ul{ padding-top:5px; padding-bottom:10px}
+#wrapper_left .l_menu ul li{height:32px; line-height:28px;text-align:left; margin-bottom:3px; font-size:10pt}
+#wrapper_left .l_menu ul li p{ padding-left:20px; color:#666}
+#wrapper_left .l_menu ul li p:hover{ color:#FFFFFF}
+#wrapper_left .l_menu ul li a:link{background:url(../../images/led/l_out.jpg); height:32px; line-height:32px; display:block; color:#666666}
+#wrapper_left .l_menu ul li a:hover{background:url(../../images/led/l_on.jpg); height:32px; line-height:32px; display:block; color:#FFFFFF;}
+#wrapper_left .l_menu ul li a:visited{background:url(../../images/led/l_out.jpg); height:32px; line-height:32px; display:block; color:#666666}
+.l_on p{background:url(../../images/led/l_on.jpg); height:22px;display:block; overflow:hidden}
+
+#wrapper_left .l_menu .l_menu_02{padding-left:10px; padding-right:10px;}
+#wrapper_left .l_menu .l_menu_02 ul{}
+#wrapper_left .l_menu .l_menu_02 ul li{background:none; height:32px;}
+#wrapper_left .l_menu .l_menu_02 ul li a:link{border-bottom:1px solid #00a159; line-height:32px; height:32px; background:none;display:block; color:#666666}
+#wrapper_left .l_menu .l_menu_02 ul li a:hover{border-bottom:1px solid #ff0000; line-height:32px; height:32px; background:none;display:block; color:#666666}
+#wrapper_left .l_menu .l_menu_02 ul li a:visited{border-bottom:1px solid #00a159; line-height:32px; height:32px; background:none;display:block; color:#666666}
+#wrapper_left .l_menu .l_menu_02 ul li p:hover{ color:#FF0000; background:none; cursor:pointer}
+#wrapper_left .l_menu .l_menu_02 ul li p{background:none}
+
+
+#wrapper_right{ width:758px; float:right; margin-top:10px; display:inline}
+#wrapper_right h3{ background:url(../../images/led/dh_bg.jpg); line-height:31px; height:31px; font-weight:normal}
+#wrapper_right h3 .font_078044{ color:#078044;font-size:16px}
+#wrapper_right h3 .font_666{ color:#CCCCCC; font-family:Arial, Helvetica, sans-serif;}
+#wrapper_right h3 span{ float:right; color:#999999; font-size:12px}
+
+
+
+/*鍐呭鏍峰紡寮�*/
+.content{MARGIN-BOTTOM: 10px; OVERFLOW: hidden; margin-top:10px}
+.content p{ color:#333; font-size:9pt}
+.content h2{height:26px; border-bottom:1px dotted #B67473; border-top:1px dotted #B67473; background-color:#FFF2F1; text-indent:15px}
+
+/*浜у搧鍒楄〃寮�*/
+.content ul{}
+.content ul li{ float:left; width:220px; margin-left:16px; margin-right:16px; display:inline; margin-top:8px;_margin-left:10px; _margin-right:10px; }
+.content ul li img{ padding:3px; border:1px solid #CCCCCC}
+
+.content_img_box { text-align:center; vertical-align:middle; width:226px; height:317px; }
+
+/*浜у搧璇︾粏寮�*/
+.products_title{ font-size:14pt; text-align:center; height:50px; border-bottom:1px dotted #006600; line-height:50px; margin-bottom:10px}
+.products_show{ width:758px; height:410px}
+.products_show .products_show_img{ width:467px; float:left; text-align:left}
+.products_show .products_show_img .img_img{padding:5px; border:1px solid #CCCCCC;}
+
+.products_show .products_show_img .products_show_img_fl{width:462px; margin-top:10px}
+
+.products_show .products_show_img .products_show_img_fl .img_fl_left{width:12px; float:left; background:url(../../images/led/b_l.jpg); line-height:56px; height:56px; display:block}
+.products_show .products_show_img .products_show_img_fl .img_fl_center{float:left; width:343px; overflow:hidden}
+.products_show .products_show_img .products_show_img_fl .img_fl_center ul{}
+.products_show .products_show_img .products_show_img_fl .img_fl_center ul li{float:left; width:54px; margin-top:0px; margin-left:2px; height:56px;}
+.products_show .products_show_img .products_show_img_fl .img_fl_center ul li img{ width:55px; height:54px; padding:0px}
+.products_show .products_show_img .products_show_img_fl .img_fl_right{width:12px; float:right; background:url(../../images/led/b_r.jpg);line-height:56px; height:56px; display:block}
+
+.products_show .products_show_con{ float:right; width:290px;}
+.products_show .products_show_con p{ font-size:11pt}
+
+.product_details_title{ background-color:#f1f1f1; height:30px; line-height:30px; border-bottom:1px dotted #006600;border-top:1px dotted #006600; font-size:11pt; padding-left:5px;}
+.product_details{ padding-top:10px; padding-bottom:10px;}
+.product_details img{ width:740px; overflow:hidden}
+.products_show_img_box { text-align:center; vertical-align:middle; width:462px; height:320px; }
+
+/*浜у搧璇︾粏缁撴潫*/
+
+.content_cases ul{}
+.content_cases ul li{ float:left; width:220px; margin-left:16px; margin-right:16px; display:inline; margin-top:8px;_margin-left:10px; _margin-right:10px; }
+.content_cases ul li img{ padding:3px; border:1px solid #CCCCCC}
+
+.content_questions{ width:758px}
+.content_questions ul{}
+.content_questions ul li{line-height:22px; border-bottom:1px dotted #ccc; padding-top:0px}
+.content_questions ul li:hover{ background-color:#f8fffc}
+.content_questions ul li a{ color:#666; text-decoration:none; font-size:10pt}
+.content_questions ul li p{ line-height:22px;}
+.content_questions ul li p.f_ccc{ color:#666; font-size:9pt}
+.content_questions ul li p span{ float:right;}
+.content_questions ul li p span a{ color:#FF3300; font-size:9pt}
+.content_questions h1{ font-size:14pt; height:40px; line-height:40px; font-weight:normal; color:#FF3300}
+.content_questions p{ color:#666666}
+
+.content_questions_download{ border-top:1px dotted #999999; padding-top:10px; margin-top:10px; color:#FF3300}
+.news_font{color:#999999; padding-left:20px; font-size:12px; font-family:Arial, Helvetica, sans-serif}
+
+.content_questions h2{ font-size:9pt; color:#CCCCCC; text-align:center; font-weight:normal; border-bottom:1px dotted #ccc}
+
+.content_questions_n{ border-top:1px dotted #CCCCCC; font-size:9pt; color:#666; line-height:26px;}
+.content_questions_n a{ color:#00a159}
+
+
+.content_contact{ width:990px; margin-top:10px}
+.content_contact h3{line-height:31px; height:31px; font-weight:normal; background:url(../../images/led/dh_bg2.jpg) left no-repeat;}
+.content_contact h3 .font_078044{ color:#078044;font-size:16px}
+.content_contact h3 .font_666{ color:#CCCCCC; font-family:Arial, Helvetica, sans-serif;}
+.content_contact h3 span{ float:right; color:#999999; font-size:12px}
+
+.content_contact p{ line-height:26px;}
+.list_page {float:left;margin:0 0 0 590px;}
+.list_page p {line-height:26px;}
+/*Footer*/
+
+#footer{ width:100%; margin:0 auto;height:56px; background-color:#068043; margin-top:35px;}
+#footer p{ line-height:18px; font-size:12px; text-align:center;color:#FFFFFF; padding-top:8px;}
+
+.page a:link,.page a:visited{ text-decoration:none; color:#000;}
+.page a:hover{ color:red;}
+.language_change { text-align:right; width:990px; height:24px; }

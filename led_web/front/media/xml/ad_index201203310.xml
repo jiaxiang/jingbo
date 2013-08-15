@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<data>
+<channel>
+
+<item>
+<link>/news/jcw</link>
+<image>/media/banner/ban10.jpg</image>
+<title></title>
+</item>
+
+<item>
+<link>/pls</link>
+<image>/media/banner/ban6.jpg</image>
+<title></title>
+</item>
+
+<item>
+<link>/dlt</link>
+<image>/media/banner/ban9.jpg</image>
+<title></title>
+</item>
+
+<item>
+<link>/jclq/rfsf</link>
+<image>/media/banner/ban5.jpg</image>
+<title></title>
+</item>
+	</channel>
+
+<config>
+  <windowOpen>_blank</windowOpen>
+  <autoPlayTime>4</autoPlayTime> 
+  <isShowBtn>true</isShowBtn> 
+  <isShowTitle>false</isShowTitle> 
+  <transform>blur</transform> 
+</config>
+</data>

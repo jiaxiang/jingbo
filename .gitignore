@@ -1,3 +1,9 @@
-code/application/cache/*
-code/application/logs/*
+code/front/application/logs/*
+code/front/application/cache/*
+code/admin/application/cache/*
+code/admin/application/logs/*
 code/attachment/*
+led_web/attachment/*
+led_web/front/application/logs/*
+led_web/admin/application/cache/*
+led_web/admin/application/logs/*

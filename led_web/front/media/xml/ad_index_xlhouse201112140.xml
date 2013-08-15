@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<data>
+<channel>
+
+<item>
+<link>/dlt</link>
+<image>/media/banner/xlhouse/ban9.jpg</image>
+<title></title>
+</item>
+
+<item>
+<link>/</link>
+<image>/media/banner/xlhouse/ban3.jpg</image>
+<title></title>
+</item>
+
+<item>
+<link>/</link>
+<image>/media/banner/xlhouse/ban4.jpg</image>
+<title></title>
+</item>
+
+<item>
+<link>/news/news_detaile/2432</link>
+<image>/media/banner/xlhouse/ban7.jpg</image>
+<title></title>
+</item>
+ 
+</channel>
+
+<config>
+  <windowOpen>_blank</windowOpen>
+  <autoPlayTime>4</autoPlayTime> 
+  <isShowBtn>true</isShowBtn> 
+  <isShowTitle>false</isShowTitle> 
+  <transform>blur</transform> 
+</config>
+</data>

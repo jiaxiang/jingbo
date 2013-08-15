@@ -1,0 +1,3 @@
+@CHARSET "UTF-8";
+.redcard {background:#FF3900;color:#fff;margin:2px;border:1px solid #B13B3B;padding:0 2px; display:inline-block;}
+.yellowcard {background:#FEE600;color:#973300;margin:2px;border:1px solid #C08160;padding:0 2px; display:inline-block;}
